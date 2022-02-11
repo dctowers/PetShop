@@ -6,14 +6,10 @@ async function getData(){
         .then(response => response.json())
         .then(json => articulos.push(...json.response))
         console.log(articulos)
-        id = 1
-        articulos.map(articulos => articulos.id == id++)
+        
         id = location.search.split("?id=").filter(Number)
-        var idseleccionado = Number(id[0])
-        var seleccion = articulos.find(function(articulos){
-            return articulos.id == idseleccionado
-        })
-        console.log(seleccion)
+        console.log(id)
+
        var imprimir = `
                      <img class"imgdentro" src="${articulos.imagen}">
                      <div class="texto">
