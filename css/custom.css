@@ -22,10 +22,6 @@ header{
     z-index: 1;
 }
 
-.navbar{
-    padding: 0;
-}
-
 .container-fluid{
     background-color: rgb(255, 255, 255);
     font-size: 1.1rem;
@@ -39,6 +35,10 @@ header{
 .logo{
     width: 5rem;
     height: 4rem;
+}
+
+.usuario{
+    width: 2.5rem;
 }
 
 main{
@@ -61,15 +61,19 @@ main{
 }
 
 .carousel{
-    width: 73rem;
+    width: 65%;
     height: 70vh;
     display: flex;
 }
 
+.schnauzer{
+    object-position: 0 -10rem;
+}
+
 .nombre{
-    width: 45rem;
-    height: auto;
-    background-color: rgba(228, 139, 67, 0.705);
+    width: 35%;
+    min-height: 70vh;
+    background-color: #E8E9EB;
     display: flex;
     text-align: center;
     align-items: center;
@@ -88,7 +92,7 @@ main{
     height: 37rem;
     min-width: auto;
     margin: .5rem;
-    background-color: #6BAA75;
+    background-color: #EF6461;
     color: black;
     display: flex;
     flex-direction: column;
