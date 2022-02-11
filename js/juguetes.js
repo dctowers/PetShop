@@ -1,6 +1,9 @@
-var articulos = []
-var imagenes = []
-var juguetes = []
+let articulos = []
+let juguetes = []
+
+
+let buscador = document.querySelector("#buscador")
+
 async function getData(){ 
     await fetch("https://apipetshop.herokuapp.com/api/articulos") 
     .then(response => response.json())
@@ -13,11 +16,17 @@ async function getData(){
 
 getData()
 
-console.log(juguetes)
+//console.log(juguetes)
 
-function updateDisplay(){
-        var templateHTML = ""
-        juguetes.map(item=>{
+function updateDisplay(buscado){
+    let toDisplay = []
+    if(buscado == undefined){
+        toDisplay.push(...juguetes)
+    }else{  
+        toDisplay.push(...buscado)
+    }
+    let templateHTML = ""
+    toDisplay.map(item=>{
         templateHTML += `
         <div class="box">
                   <img src="${item.imagen}">
@@ -27,8 +36,31 @@ function updateDisplay(){
                     </div>
               </div>
         `
+
+        document.querySelector("#cartas").innerHTML = templateHTML
+
     })
-    console.log(templateHTML)
-    document.querySelector("#cartas").innerHTML = templateHTML
+    //console.log(templateHTML)
+ 
+
 }
+
+
+function search(event){
+    let data = []
+    let buscar = ""
+    buscar = event.target.value
+    console.log(buscar)
+
+    if(buscar == ""){
+        data.push(...juguetes)
+    }else{
+        data.push(...juguetes.filter(juguete => juguete.nombre.toLowerCase().includes(buscar.toLowerCase())))
+    }
+    console.log(data);
+    updateDisplay(data)
+
+}
+
+buscador.addEventListener("keyup", search)
 
