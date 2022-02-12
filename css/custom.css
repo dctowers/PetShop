@@ -45,7 +45,6 @@ main {
   width: 100%;
   min-height: auto;
   margin-top: 6rem;
-  /* background-color: rgba(13, 134, 13, 0.911); */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

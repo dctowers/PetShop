@@ -1,24 +1,64 @@
 var articulos = []
-
-
+var url = window.location.search; 
+var id
+var seleccionado
 async function getData(){ 
     await fetch("https://apipetshop.herokuapp.com/api/articulos") 
         .then(response => response.json())
         .then(json => articulos.push(...json.response))
         console.log(articulos)
+         
+        url = url.split("?id=").splice(1);
+        var busqueda = articulos.filter(eventos=>eventos._id == url)
+        seleccionado = busqueda
+        console.log(url)
+        console.log(seleccionado)
         
-        id = location.search.split("?id=").filter(Number)
-        console.log(id)
+ 
+        
+        var imprimir = ""
+        seleccionado.forEach(seleccionado=>{
+            
 
-       var imprimir = `
-                     <img class"imgdentro" src="${articulos.imagen}">
-                     <div class="texto">
-                         <h2>${articulos.nombre}</h2>
-                         <h3>precio: $${articulos.precio}</h3>
-                     </div>      
-        ` 
+            
+        imprimir = `  
+                    <div class="titulo">
+                    </div>
+                    <div class="contenido">
+                    <div class="imagen">
+                    <img class="imagendentro" src="${seleccionado.imagen}">
+                    </div>
+                    <div class="texto">
+                    
+                    <h2>${seleccionado.nombre}</h2>
+                    <p>${seleccionado.descripcion}</p>
+                    <div class="botonesyprecio">     
+                    <h3>Precio: $${seleccionado.precio}</h3>
+                    <div class="botones">
+                    <button>Añadir al carrito</button>
+                    <button>Comprar ahora</button>
+                    </div>
+                    </div>
+                    </div>
+
+        `           
+       })
        
-document.querySelector("#box").innerHTML = imprimir;
-    }
+            document.querySelector("#box").innerHTML = imprimir;
+}
 getData()
 console.log(articulos)  
+
+function stockcontrol(){
+    console.log("funcionando")
+    articulos.forEach(item=>{
+        if(item.stock >= 5){
+            console.log("quedan burda")
+        }
+        else{
+            console.log("quedan pocos")
+        }
+    })
+
+}
+stockcontrol()
