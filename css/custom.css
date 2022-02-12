@@ -27,14 +27,13 @@ header {
   color: black;
 }
 
-.btn-outline-success {
-  border: 2px solid black;
-  color: black;
-}
-
 .logo {
   width: 5rem;
   height: 4rem;
+}
+
+.usuario {
+  width: 2.5rem;
 }
 
 main {
@@ -108,59 +107,6 @@ main {
 .imgindex {
   width: 45rem;
   height: 37rem;
-}
-
-footer {
-  width: 100%;
-  min-height: auto;
-  background-color: rgba(153, 95, 9, 0.623);
-  display: flex;
-  justify-content: center;
-}
-.box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 25rem;
-  height: 27rem;
-  border: 1px solid #dc0073;
-  margin: auto;
-  border-radius: 30px;
-  text-align: center;
-  color: black;
-  box-shadow: 0px 10px 10px gray;
-  transition: all 100ms ease;
-  margin: 20px;
-  padding: 2px;
-}
-.box:hover {
-  width: 25.2rem;
-  height: 27.2rem;
-}
-.box.img:hover {
-  box-shadow: 0px 15px 15px black;
-}
-.box img {
-  height: 16rem;
-}
-.cartconter {
-  display: flex;
-  flex-direction: row !important;
-  flex-wrap: wrap;
-}
-.navegacion {
-  background-color: #008bf8 !important;
-}
-main a {
-  text-decoration: none;
-}
-.unidadesultimas {
-  visibility: hidden;
-  text-align: center;
-  font-size: 20px;
-  font-weight: 400;
-  border-radius: 10px;
-  color: red;
 }
 
 footer {
