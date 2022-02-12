@@ -1,12 +1,12 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-    display: flex;
-    flex-direction: column;
+body {
+  display: flex;
+  flex-direction: column;
 }
 
 html{
@@ -31,13 +31,13 @@ header{
     color: black;
 }
 
-.logo{
-    width: 5rem;
-    height: 4rem;
+.logo {
+  width: 5rem;
+  height: 4rem;
 }
 
-.usuario{
-    width: 2.5rem;
+.usuario {
+  width: 2.5rem;
 }
 
 main{
@@ -50,71 +50,71 @@ main{
     justify-content: center;
 }
 
-.intro{
-    width: 100%;
-    min-height: auto;
-    margin-bottom: 2rem;
-    /* background-color: aquamarine; */
-    display: flex;
-    flex-wrap: wrap;
+.intro {
+  width: 100%;
+  min-height: auto;
+  margin-bottom: 2rem;
+  /* background-color: aquamarine; */
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.carousel{
-    width: 65%;
-    height: 70vh;
-    display: flex;
+.carousel {
+  width: 65%;
+  height: 70vh;
+  display: flex;
 }
 
-.schnauzer{
-    object-position: 0 -10rem;
+.schnauzer {
+  object-position: 0 -10rem;
 }
 
-.nombre{
-    width: 35%;
-    min-height: 70vh;
-    background-color: #E8E9EB;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center; 
+.nombre {
+  width: 35%;
+  min-height: 70vh;
+  background-color: #e8e9eb;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.nombrepag{
-    font-size: 5rem;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    color: black;
+.nombrepag {
+  font-size: 5rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: black;
 }
 
-.container{
-    width: 45rem;
-    height: 37rem;
-    min-width: auto;
-    margin: .5rem;
-    background-color: #EF6461;
-    color: black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.container {
+  width: 45rem;
+  height: 37rem;
+  min-width: auto;
+  margin: 0.5rem;
+  background-color: #ef6461;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.minilogos{
-    width: 8rem;
-    height: 7rem;
+.minilogos {
+  width: 8rem;
+  height: 7rem;
 }
 
-.containerimg{
-    width: 45rem;
-    min-height: auto;
-    margin: .5rem;
-    background-color: rgb(255, 255, 255);
-    color: black;
+.containerimg {
+  width: 45rem;
+  min-height: auto;
+  margin: 0.5rem;
+  background-color: rgb(255, 255, 255);
+  color: black;
 }
 
-.imgindex{
-    width: 45rem;
-    height: 37rem;
+.imgindex {
+  width: 45rem;
+  height: 37rem;
 }
 
 
