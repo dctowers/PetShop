@@ -9,6 +9,10 @@ body{
     flex-direction: column;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 header{
     width: 100%;
     min-height: auto;
