@@ -35,3 +35,9 @@ function updateDisplay(){
     document.querySelector("#cartas").innerHTML = templateHTML
 }
 console.log(articulos)
+
+function alerta(){
+    articulos.forEach(articulos=>{
+        articulos.stock.map
+    })
+}

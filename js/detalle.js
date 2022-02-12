@@ -2,6 +2,9 @@ var articulos = []
 var url = window.location.search; 
 var id
 var seleccionado
+var botonComprar = document.querySelector("comprar")
+
+
 async function getData(){ 
     await fetch("https://apipetshop.herokuapp.com/api/articulos") 
         .then(response => response.json())
@@ -35,8 +38,8 @@ async function getData(){
                     <div class="botonesyprecio">     
                     <h3>Precio: $${seleccionado.precio}</h3>
                     <div class="botones">
-                    <button>Añadir al carrito</button>
-                    <button>Comprar ahora</button>
+                    <button onclick= "añadirCarrito()" id="carrito">Añadir al carrito</button>
+                    <button onclick= "compraDirecta()" id="comprar" data-open="modal">Comprar ahora</button>
                     </div>
                     </div>
                     </div>
@@ -62,3 +65,12 @@ function stockcontrol(){
 
 }
 stockcontrol()
+// function compradirecta(){
+//     console.log(funciona)
+// }
+function compraDirecta(){
+    console.log("funciona")
+}
+function añadirCarrito(){
+    console.log("añadir al carrito")
+}

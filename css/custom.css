@@ -9,11 +9,10 @@ body {
   flex-direction: column;
 }
 
-<<<<<<< HEAD
 header {
   width: 100%;
   min-height: auto;
-  padding: 1rem 5rem;
+  padding: 1rem 2rem 1rem 5rem;
   /* background-color: rgba(0, 204, 255, 0.685); */
   background-color: white;
   display: flex;
@@ -23,31 +22,9 @@ header {
   z-index: 1;
 }
 
-.navbar {
-  padding: 0;
-}
-
-.container-fluid {
-  background-color: rgb(255, 255, 255);
-  font-size: 1.1rem;
-=======
-header{
-    width: 100%;
-    min-height: auto;
-    padding: 1rem 2rem 1rem 5rem;
-    /* background-color: rgba(0, 204, 255, 0.685); */
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: fixed;
-    z-index: 1;
-}
-
-.btn-outline-success{
-    border: 2px solid black;
-    color: black;
->>>>>>> b49965e55867c434f56acbddce236cef2ff16464
+.btn-outline-success {
+  border: 2px solid black;
+  color: black;
 }
 
 .btn-outline-success {
@@ -60,14 +37,14 @@ header{
   height: 4rem;
 }
 
-main{
-    width: 100%;
-    min-height: auto;
-    padding-top: 6rem;
-    /* background-color: rgba(13, 134, 13, 0.911); */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+main {
+  width: 100%;
+  min-height: auto;
+  padding-top: 6rem;
+  /* background-color: rgba(13, 134, 13, 0.911); */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .intro {
@@ -186,55 +163,46 @@ main a {
   color: red;
 }
 
-
-footer{
-    width: 100%;
-    min-height: 20rem;
-    background-color: rgba(153, 95, 9, 0.623);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+footer {
+  width: 100%;
+  min-height: 20rem;
+  background-color: rgba(153, 95, 9, 0.623);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
 
 /* Estilos pagina Farmacia y Juguetes */
 
-.titulo{
-    width: 60%;
-    min-height: 10rem;
-    margin-top: 4rem;
-    /* background-color: rgba(139, 27, 27, 0.637); */
-    color: black;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
+.titulo {
+  width: 60%;
+  min-height: 10rem;
+  margin-top: 4.1rem;
+  /* background-color: rgba(139, 27, 27, 0.637); */
+  color: black;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
 }
 
-.divbuscar{
-    width: 90%;
-    margin-top: 3rem;
-    /* background-color: aqua; */
-    display: flex;
-    justify-content: end;
+.divbuscar {
+  width: 90%;
+  margin-top: 3rem;
+  /* background-color: aqua; */
+  display: flex;
+  justify-content: end;
 }
 
-.buscador{
-    width: 15rem;
-    height: 2.5rem;
-    border: 1px solid black;
+.tarjetas {
+  width: 60%;
+  min-height: 80rem;
+  margin-top: 1rem;
+  background-color: rgba(139, 27, 27, 0.637);
+  display: flex;
+  justify-content: center;
+  color: black;
 }
-
-.tarjetas{
-    width: 60%;
-    min-height: 80rem;
-    margin-top: 1rem;
-    background-color: rgba(139, 27, 27, 0.637);
-    display: flex;
-    justify-content: center;
-    color: black;
-}
-
 
 /* Estilos pagina de Contacto */
