@@ -6,17 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Card</title>
     <link rel="stylesheet" href="../css/card.css" />
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"
-    ></script>
+
   </head>
   <body>
     <div class="row">
       <div class="example-1 card">
         <div class="wrapper">
+          <div class="imgdentro">
+            <img src="https://puppis.vteximg.com.br/arquivos/ids/170176-1000-1000/373019.png?v=637142631469200000" alt="">
+          </div>
           <div class="date">
             <span class="year">Stock</span>
             <span class="month">Limitado:</span>
@@ -24,31 +22,15 @@
           </div>
           <div class="data">
             <div class="content">
-              <span class="precio">Precio: 970</span>
+          
               <h1 class="title">
-                <a href="#">Juguete interactivo IQ Treat Ball</a>
+                <a class="titulo" href="#">Juguete interactivo IQ Treat Ball</a>
               </h1>
-              <p class="text">
-                Esta pelota estimula el pensamiento de su mascota haciendo que
-                tenga que encontrar la forma de jugar con ella para poder
-                recibir su premio. Puede ser utilizada tanto por perros como por
-                gatos y favorece el tiempo de ingesta para mejorar la digestión
-                de los mismos.
-              </p>
-              <label for="show-menu" class="menu-button"><span></span></label>
-            </div>
-            <input type="checkbox" id="show-menu" />
-            <ul class="menu-content">
-              <li>
-                <a href="#" class="fa fa-bookmark-o"></a>
-              </li>
-              <li>
-                <a href="#" class="fa fa-heart-o"><span>47</span></a>
-              </li>
-              <li>
-                <a href="#" class="fa fa-comment-o"><span>8</span></a>
-              </li>
-            </ul>
+              <span class="precio">Precio: $970</span>
+              <div class="botones">
+                <button onclick= "añadirCarrito()" id="carrito">Añadir al carrito</button>
+                  <button onclick= "compraDirecta()" id="comprar" data-open="modal">Comprar ahora</button>
+              </div>
           </div>
         </div>
       </div>
