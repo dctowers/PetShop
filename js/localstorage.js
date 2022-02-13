@@ -51,7 +51,7 @@ function init(){
                         <h3>precio: $${item.precio}</h3>
                     </div>
                     <div class="botones">
-                    <button onClick="removeID('${item._id}')" id="${item._id}" class="btn-carrito">Quirar del carrito</button>
+                    <button onClick="removeID('${item._id}')" id="${item._id}" class="btn-carrito">Quitar del carrito</button>
                     <button onClick="getID('${item._id}')" id="${item._id}" class="btn-carrito">Añadir al carrito</button>
                     </div>
               </div>
