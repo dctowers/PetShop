@@ -1,3 +1,10 @@
+/* Fuentes:  */
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Prompt&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oooh+Baby&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pragati+Narrow&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -16,7 +23,7 @@ html {
 header {
   width: 100%;
   min-height: auto;
-  padding: 1rem 2rem 1rem 5rem;
+  padding: 1rem 2rem 1rem 3rem;
   /* background-color: rgba(0, 204, 255, 0.685); */
   background-color: white;
   display: flex;
@@ -24,6 +31,27 @@ header {
   justify-content: space-between;
   position: fixed;
   z-index: 1;
+}
+
+.encabezado {
+  display: flex;
+  align-items: center;
+  font-family: "Prompt", sans-serif;
+  letter-spacing: 4px;
+}
+
+.encabezado h3 {
+  margin-left: 0.7rem;
+  margin-top: 0.9rem;
+}
+
+nav {
+  font-family: "Rubik", sans-serif;
+}
+
+nav a:hover {
+  transition: 300ms;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
 }
 
 .btn-outline-success {
@@ -37,7 +65,12 @@ header {
 }
 
 .usuario {
-  width: 2.5rem;
+  width: 2rem;
+}
+
+.dropdown-menu[data-bs-popper] {
+  top: 100%;
+  left: -250%;
 }
 
 main {
@@ -60,13 +93,17 @@ main {
 }
 
 .carousel {
-  width: 73rem;
+  width: 60%;
   height: 70vh;
   display: flex;
 }
 
+.schnauzer {
+  object-position: 0 -10rem;
+}
+
 .nombre {
-  width: 45rem;
+  width: 40%;
   height: auto;
   background-color: #e8e9eb;
   display: flex;
@@ -74,6 +111,15 @@ main {
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  font-family: "Prompt", sans-serif;
+  letter-spacing: 4px;
+}
+
+.cursiva {
+  font-size: 6rem;
+  font-family: "Oooh Baby", cursive;
+  letter-spacing: 0px;
+  color: #cf7124;
 }
 
 .nombrepag {
@@ -87,17 +133,32 @@ main {
   height: 37rem;
   min-width: auto;
   margin: 0.5rem;
-  background-color: #ef6461;
+  background-color: #ec9b59e7;
   color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
+  font-family: "Prompt", sans-serif;
+  transition: 500ms;
+}
+
+.container:hover {
+  transform: scale(0.95);
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.657);
+  color: white;
 }
 
 .minilogos {
   width: 8rem;
   height: 7rem;
+  margin-bottom: 2rem;
+}
+
+.minilogofarmacia {
+  width: 20rem;
+  height: 10rem;
 }
 
 .containerimg {
@@ -116,11 +177,149 @@ main {
 footer {
   width: 100%;
   min-height: 20rem;
-  background-color: rgba(153, 95, 9, 0.623);
+  background-color: #e8e9eb;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.formulario {
+  width: 45.5rem;
+  height: 31rem;
+  padding: 3rem;
+  /* border-right: 0.5px solid black ; */
+  /* background-color: #ef6461; */
+  display: flex;
+  flex-direction: column;
+  font-family: "Pragati Narrow", sans-serif;
+  font-size: 1.2rem;
+}
+
+.informacion {
+  width: 45.5rem;
+  height: 31rem;
+  padding: 3rem 0rem;
+  /* border-right: 0.5px solid black ; */
+  /* background-color: #ef6461; */
+  display: flex;
+  flex-direction: column;
+  font-family: "Pragati Narrow", sans-serif;
+}
+
+.caja1 {
+  min-width: auto;
+  display: flex;
+  /* background-color: #ef6461; */
+}
+
+.caja2 {
+  min-width: auto;
+  min-height: 11rem;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* background-color: #ef6461; */
+}
+
+.cajasinfo {
+  width: 13rem;
+  height: 15rem;
+  line-height: 0.7rem;
+  /* border: 3px solid green; */
+  margin-left: 1.5rem;
+  color: black;
+}
+
+.titulosinfo {
+  margin-bottom: 1rem;
+  font-family: "Pragati Narrow", sans-serif;
+  font-size: 1.2rem;
+}
+
+.logos {
+  width: 42rem;
+  height: 3rem;
+  /* border: 3px solid black; */
+  margin-left: 1.5rem;
+  display: flex;
+}
+
+.nosotros {
+  width: 42rem;
+  height: 3rem;
+  /* border: 3px solid black; */
+  margin-left: 1.5rem;
+  display: flex;
+}
+
+.derechos {
+  width: 42rem;
+  height: 3rem;
+  /* border: 3px solid black; */
+  color: black;
+  margin-left: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.loguitosredes {
+  width: 2rem;
+  height: 2rem;
+  margin: 0 0.5rem;
+}
+
+.cierre {
+  line-height: 0.5rem;
+}
+
+.cajamenciones {
+  width: 20rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color:antiquewhite; */
+}
+
+.menciones {
+  margin: 0 0 0 0.5rem;
+}
+
+.consulta {
+  text-align: center;
+  /* background-color: aqua; */
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  border: 0.5px solid black;
+  background-color: #e8e9eb;
+}
+
+.form-select {
+  border: 0.5px solid black;
+  background-color: #e8e9eb;
+}
+
+.input-group-text {
+  border: 0.5px solid green;
+}
+
+.btn-primary {
+  border-radius: 0px;
+  border: none;
+  background-color: black;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: white;
+  color: black;
+}
+
+textarea {
+  max-width: 25rem;
+  max-height: 6rem;
 }
 
 /* Estilos pagina Farmacia y Juguetes */
@@ -147,12 +346,11 @@ footer {
 }
 
 .tarjetas {
-  width: 60%;
+  width: 80%;
   min-height: 80rem;
   margin-top: 1rem;
   /* background-color: rgba(139, 27, 27, 0.637); */
   display: flex;
-  justify-content: center;
   color: black;
 }
 .box {
@@ -205,8 +403,18 @@ tr {
   background-color: red;
   width: 40px;
   height: 40px;
-  margin-right: 10px;
+  margin-left: 10px;
   border-radius: 60px;
 }
-
+.botonborrar {
+  height: 40px;
+  border-radius: 20px;
+  width: 7rem;
+  border: none;
+  background-color: orange;
+}
+.botonmas:hover {
+  height: 42px;
+  width: 42px;
+}
 /* Estilos pagina de Contacto */
