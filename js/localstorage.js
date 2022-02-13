@@ -45,10 +45,8 @@ function init(){
         <td> <img class"imagentabla" src="${item.imagen}" alt="Imagen tabla"></td>
         <td>${item.nombre}</td>
         <td>${item.cantidad}</td>
-        <td><button>+</button><button>-</button></td>
+        <td><button class="botonmas">+</button><button class="borrar"><img src="../assets/papelera-de-reciclaje.png" alt=""></button><button class="botonmenos">-</button></td>
         <td>$${item.precio}</td>
-
-        
       </tr>
         `
         
