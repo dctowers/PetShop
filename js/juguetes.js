@@ -29,7 +29,7 @@ function updateDisplay(buscado){
     let templateHTML = ""
     toDisplay.forEach(item=>{
 
-        let alerta = item.stock <= 5 ? `<p class="text-danger">Ultimas unidades!</p>`:` `
+        let alerta = item.stock <= 5 ? `<p class="date">Ultimas unidades!</p>`:` `
         
         templateHTML += `
 <a href="./detalle.html?id=${item._id}">
