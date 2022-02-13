@@ -38,9 +38,6 @@ function updateDisplay(buscado){
                     <img src="${item.imagen}" alt="">
                 </div>
                 <div class="date">
-                    <span class="year">Stock</span>
-                    <span class="month">Limitado:</span>
-                    <span class="day">5</span>
                 </div>
         <div class="data">
         <div class="content">    
@@ -49,8 +46,8 @@ function updateDisplay(buscado){
                 </h1>
                 <span class="precio">Precio: $${item.precio}</span>
                 <div class="botones">
-                    <button onclick= "añadirCarrito()" id="carrito">Añadir al carrito</button>
-                    <button onclick= "compraDirecta()" id="comprar" data-open="modal">Comprar ahora</button>
+                    <button onClick= "getID(${item._id})" id="${item._id}">Añadir al carrito</button>
+                    <button onClick= "compraDirecta()" id="comprar" data-open="modal">Comprar ahora</button>
                 </div>
         </div>
         </div>
@@ -66,7 +63,21 @@ function updateDisplay(buscado){
  
 
 }
+var lista = JSON.parse(localStorage.getItem('carrito')) || []
+var Limpiar 
 
+function getID(event){
+
+
+    lista.push(event)
+    const unicoCarrito = new Set(lista) 
+    var limpiar = [...unicoCarrito]
+    
+    
+    localStorage.setItem('carrito', JSON.stringify(limpiar));
+    init()
+    
+     }
 
 function search(event){
     let data = []
@@ -87,5 +98,20 @@ function search(event){
 buscador.addEventListener("keyup", search)
 
 
+function bajoStock(){
 
+    var pocos = toDisplay.filter(juguetes=>juguetes.stock <= 5 )
+    console.log(pocos)
+    let alertaPocos = ""
+    
+    pocos.forEach(item=>{
+        alertaPocos +=`
+        <span class="year">Stock</span>
+        <span class="month">Limitado:</span>
+        <span class="day">5</span>
+        `
 
+    })
+
+    document.querySelector(".date").innerHTML = alertaPocos
+}
