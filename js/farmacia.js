@@ -31,7 +31,7 @@ function updateDisplay(buscado){
         var templateHTML = ""
             toDisplay.map(item=>{
                 templateHTML += `
-                <a href="./detalle.html?id=${item._id}">
+                
                 <div class="box">
                 <div class="lowstock">
                 </div>
@@ -41,8 +41,11 @@ function updateDisplay(buscado){
                                 <h2>${item.nombre}</h2>
                                 <h3>precio: $${item.precio}</h3>
                             </div>
+                            <div class="botones">
+                            <button onClick="getID('${item._id}')" id="${item._id}" class="btn-carrito">Añadir al carrito</button>
+                            </div>
                       </div>
-                </a>      
+                     
                 `
             
     
@@ -52,6 +55,21 @@ function updateDisplay(buscado){
 }
 console.log(articulos)
 
+var favorites = JSON.parse(localStorage.getItem('favoritos')) || []
+
+function getID(event){
+
+
+        console.log(event)
+    favorites.push(event)
+    const unicoFav = new Set(favorites) //Dado al recorrer el array anterios me va a dar todas las propiedades, con el metodo set elimino los repetidos y dejo solo el primer elemento encontrado, el resto lo descarta
+    var clearFav = [...unicoFav]
+    
+    
+    localStorage.setItem('carrito', JSON.stringify(clearFav));
+    init()
+    
+}
 function search(event){
     let data = []
     let buscar = ""
@@ -69,7 +87,7 @@ function search(event){
 
 function bajoStock(){
     var alertastock = document.querySelectorAll(".unidadesultimas")
-    console.log(alertastock)
+    // console.log(alertastock)
     var pocos = toDisplay.filter(juguetes=>juguetes.stock <= 5 )
     console.log(pocos)
     var templateHTML = "Ultimos en stock"
