@@ -10,7 +10,7 @@ async function getData(){
     .then(response => response.json())
     .then(json => articulos.push(...json.response))
     juguetes.push(...articulos.filter(articulos=>articulos.tipo === "Juguete"))
-    console.log(juguetes);
+    // console.log(juguetes);
 
     updateDisplay()
     bajoStock()
@@ -46,8 +46,8 @@ function updateDisplay(buscado){
                 </h1>
                 <span class="precio">Precio: $${item.precio}</span>
                 <div class="botones">
-                    <button onClick= "getID(${item._id})" id="${item._id}">Añadir al carrito</button>
-                    <button onClick= "compraDirecta()" id="comprar" data-open="modal">Comprar ahora</button>
+                    <button onClick="getID('${item._id}')" id="${item._id}" class="btn-carrito">Añadir al carrito</button>
+                    <button onClick= "getID(${item._id})" id="${item._id}" data-open="modal">Comprar ahora</button>
                 </div>
         </div>
         </div>
@@ -59,17 +59,13 @@ function updateDisplay(buscado){
         document.querySelector("#cartas").innerHTML = templateHTML
         
     })
-    //console.log(templateHTML)
- 
-
 }
 var lista = JSON.parse(localStorage.getItem('carrito')) || []
 var Limpiar 
 
-function getID(event){
-
-
-    lista.push(event)
+function getID(e){
+    console.log(e.target)
+    lista.push(e)
     const unicoCarrito = new Set(lista) 
     var limpiar = [...unicoCarrito]
     
@@ -77,7 +73,7 @@ function getID(event){
     localStorage.setItem('carrito', JSON.stringify(limpiar));
     init()
     
-     }
+}
 
 function search(event){
     let data = []
@@ -101,7 +97,7 @@ buscador.addEventListener("keyup", search)
 function bajoStock(){
 
     var pocos = toDisplay.filter(juguetes=>juguetes.stock <= 5 )
-    console.log(pocos)
+    // console.log(pocos)
     let alertaPocos = ""
     
     pocos.forEach(item=>{

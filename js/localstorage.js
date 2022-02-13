@@ -27,7 +27,7 @@ function init(){
 
 
     var toDisplayCarrito = []     
-    console.log(items)
+    // console.log(items)
     guardado.map(idguardado =>{
 
     
@@ -35,36 +35,26 @@ function init(){
     toDisplayCarrito.push(...items.filter(objetos => objetos._id == idguardado))
     
     })
-    var templateHTMLcarrito = "hola" 
+    var templateHTMLcarrito = "" 
     
     
     toDisplayCarrito.map(item => { 
     
         templateHTMLcarrito += `    
-        <a href="./detalle.html?id=${item._id}">
-        <div class="row">
-            <div class="example-1 card">
-                <div class="wrapper">
-                        <div class="imgdentro">
-                            <img src="${item.imagen}" alt="">
-                        </div>
-                        <div class="date">
-                        </div>
-                <div class="data">
-                <div class="content">    
-                        <h1 class="title">
-                            <a class="titulo" href="#">${item.nombre}</a>
-                        </h1>
-                        <span class="precio">Precio: $${item.precio}</span>
-                        <div class="botones">
-                            <button class="itemsCount" onClick="addQ(${item._id})">+</button>
-                            
-                        </div>
-                </div>
-                </div>
-            </div>
+        <div class="box">
+        <div class="lowstock">
         </div>
-        </a>
+                    <h4 id="alerta" class="unidadesultimas">Ultimas unidades disponibles</h4>
+                    <img class"imgdentro" src="${item.imagen}">
+                    <div class="texto">
+                        <h2>${item.nombre}</h2>
+                        <h3>precio: $${item.precio}</h3>
+                    </div>
+                    <div class="botones">
+                    <button onClick="removeID('${item._id}')" id="${item._id}" class="btn-carrito">Quirar del carrito</button>
+                    <button onClick="getID('${item._id}')" id="${item._id}" class="btn-carrito">Añadir al carrito</button>
+                    </div>
+              </div>
         `
         
     })
@@ -72,4 +62,13 @@ function init(){
     document.querySelector('#cartascarrito').innerHTML = templateHTMLcarrito 
     
 }
+
     init()
+    function removeID(event){
+
+        guardado = guardado.filter(idguardado => idguardado != event)
+        localStorage.setItem('carrito', JSON.stringify(guardado))
+        //localStorage.setItem("cargaControl", "Secargo")
+        init()
+    console.log(guardado)
+    }    
