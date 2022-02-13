@@ -2,6 +2,7 @@ var articulos = [];
 var imagenes = [];
 var medicamentos = [];
 let toDisplay = [];
+let data = [];
 var alerta = document.querySelector("#alerta");
 let buscador = document.querySelector("#buscar");
 buscador.addEventListener("keyup", search);
@@ -18,31 +19,43 @@ async function getData() {
 }
 getData();
 console.log(medicamentos);
-function updateDisplay(buscado) {
-  if (buscado == undefined) {
-    toDisplay.push(...medicamentos);
+function updateDisplay(data) {
+  if (data) {
+    toDisplay = [];
+    toDisplay.push(...data);
   } else {
-    toDisplay.push(...buscado);
+    toDisplay.push(...medicamentos);
   }
   var templateHTML = "";
   toDisplay.map((item) => {
+    let alerta =
+      item.stock <= 5 ? `<p class="text-danger">Ultimas unidades!</p>` : ` `;
+
     templateHTML += `
-                
-                <div class="box">
-                <div class="lowstock">
-                </div>
-                            <h4 id="alerta" class="unidadesultimas">Ultimas unidades disponibles</h4>
-                            <img class"imgdentro" src="${item.imagen}">
-                            <div class="texto">
-                                <h2>${item.nombre}</h2>
-                                <h3>precio: $${item.precio}</h3>
-                            </div>
-                            <div class="botones">
+    <a href="./detalle.html?id=${item._id}">
+    <div class="row">
+        <div class="example-1 card">
+            <div class="wrapper">
+                    <p>${alerta}</p>
+                    <div class="imgdentro">
+                        <img src="${item.imagen}" alt="">
+                    </div>
+                    <div class="date">
+                    </div>
+                <div class="data">
+                <div class="content">    
+                        <h1 class="title">
+                            <a class="titulo" href="#">${item.nombre}</a>
+                        </h1>
+                        <span class="precio">Precio: $${item.precio}</span>
+                        <div class="botones">
                             <button onClick="getID('${item._id}')" id="${item._id}" class="btn-carrito">Añadir al carrito</button>
-                            </div>
-                      </div>
-                     
-                `;
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</a>`;
 
     // console.log(medicamentos)
     document.querySelector("#cartas").innerHTML = templateHTML;
@@ -59,22 +72,26 @@ function getID(event) {
   var clearFav = [...unicoFav];
 
   localStorage.setItem("carrito", JSON.stringify(clearFav));
-  init();
+  // init()
 }
 function search(event) {
-  let data = [];
-  let buscar = "";
-  buscar = event.target.value;
-  console.log(buscar);
-  if (buscar == "") {
+  let buscador = "";
+  buscador = event.target.value;
+  console.log(buscador);
+  if (buscador == "") {
+    data = [];
     data.push(...medicamentos);
+    console.log("if");
   } else {
+    data = [];
     data.push(
       ...medicamentos.filter((medicamentos) =>
-        medicamentos.nombre.toLowerCase().includes(buscar.toLowerCase())
+        medicamentos.nombre.toLowerCase().includes(buscador.toLowerCase())
       )
     );
+    console.log("else");
   }
+  updateDisplay(data);
   console.log(data);
 }
 
