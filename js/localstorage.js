@@ -1,75 +1,64 @@
-let items = []
-var guardado = []
-var array = []
+let items = [];
+var guardado = [];
+var array = [];
 
+async function data() {
+  await fetch("https://apipetshop.herokuapp.com/api/articulos")
+    .then((response) => response.json())
+    .then((json) => items.push(...json.response));
+  items.map((items) => {
+    items.cantidad = 1;
+  });
 
-async function data(){ 
-    await fetch("https://apipetshop.herokuapp.com/api/articulos") 
-    .then(response => response.json())
-    .then(json => items.push(...json.response))
-    items.map(items=>{
-        items.cantidad=1;
-    })
-    
-
- init()      
+  init();
 }
-data()
-function init(){
-    
+data();
+function init() {
+  var dataLocal = JSON.parse(localStorage.getItem("carrito"));
+  if (dataLocal != null) {
+    guardado = dataLocal;
+  } else {
+    guardado = [];
+  }
 
-    var dataLocal = JSON.parse(localStorage.getItem('carrito'))
-        if(dataLocal !=null ){
-            guardado = dataLocal
-        }else{guardado=[]}
-    
-    console.log(guardado)
+  console.log(guardado);
 
+  var toDisplayCarrito = [];
+  // console.log(items)
+  guardado.map((idguardado) => {
+    toDisplayCarrito.push(
+      ...items.filter((objetos) => objetos._id == idguardado)
+    );
+  });
+  var templateHTMLcarrito = "";
 
-    var toDisplayCarrito = []     
-    console.log(items)
-    guardado.map(idguardado =>{
-
-    
-
-    toDisplayCarrito.push(...items.filter(objetos => objetos._id == idguardado))
-    
-    })
-    var templateHTMLcarrito = "hola" 
-    
-    
-    toDisplayCarrito.map(item => { 
-    
-        templateHTMLcarrito += `    
-        <a href="./detalle.html?id=${item._id}">
-        <div class="row">
-            <div class="example-1 card">
-                <div class="wrapper">
-                        <div class="imgdentro">
-                            <img src="${item.imagen}" alt="">
-                        </div>
-                        <div class="date">
-                        </div>
-                <div class="data">
-                <div class="content">    
-                        <h1 class="title">
-                            <a class="titulo" href="#">${item.nombre}</a>
-                        </h1>
-                        <span class="precio">Precio: $${item.precio}</span>
-                        <div class="botones">
-                            <button class="itemsCount" onClick="addQ(${item._id})">+</button>
-                            
-                        </div>
-                </div>
-                </div>
-            </div>
+  toDisplayCarrito.map((item) => {
+    templateHTMLcarrito += `    
+        <div class="box">
+        <div class="lowstock">
         </div>
-        </a>
-        `
-        
-    })
-    
-    document.querySelector('#cartascarrito').innerHTML = templateHTMLcarrito 
-    
+                    <h4 id="alerta" class="unidadesultimas">Ultimas unidades disponibles</h4>
+                    <img class"imgdentro" src="${item.imagen}">
+                    <div class="texto">
+                        <h2>${item.nombre}</h2>
+                        <h3>precio: $${item.precio}</h3>
+                    </div>
+                    <div class="botones">
+                    <button onClick="removeID('${item._id}')" id="${item._id}" class="btn-carrito">Quitar del carrito</button>
+                    <button onClick="getID('${item._id}')" id="${item._id}" class="btn-carrito">Añadir al carrito</button>
+                    </div>
+              </div>
+        `;
+  });
+
+  document.querySelector("#cartascarrito").innerHTML = templateHTMLcarrito;
 }
-    init()
+
+init();
+function removeID(event) {
+  guardado = guardado.filter((idguardado) => idguardado != event);
+  localStorage.setItem("carrito", JSON.stringify(guardado));
+  //localStorage.setItem("cargaControl", "Secargo")
+  init();
+  console.log(guardado);
+}

@@ -10,7 +10,7 @@ async function getData(){
     .then(response => response.json())
     .then(json => articulos.push(...json.response))
     juguetes.push(...articulos.filter(articulos=>articulos.tipo === "Juguete"))
-    console.log(juguetes);
+    // console.log(juguetes);
 
     updateDisplay()
     bajoStock()
@@ -28,48 +28,46 @@ function updateDisplay(buscado){
     }
     let templateHTML = ""
     toDisplay.forEach(item=>{
+
+        let alerta = item.stock <= 5 ? `<p class="text-danger">Ultimas unidades!</p>`:` `
         
         templateHTML += `
 <a href="./detalle.html?id=${item._id}">
-<div class="row">
-    <div class="example-1 card">
-        <div class="wrapper">
-                <div class="imgdentro">
-                    <img src="${item.imagen}" alt="">
+    <div class="row">
+        <div class="example-1 card">
+            <div class="wrapper">
+                    <p>${alerta}</p>
+                    <div class="imgdentro">
+                        <img src="${item.imagen}" alt="">
+                    </div>
+                    <div class="date">
+                    </div>
+                <div class="data">
+                <div class="content">    
+                        <h1 class="title">
+                            <a class="titulo" href="#">${item.nombre}</a>
+                        </h1>
+                        <span class="precio">Precio: $${item.precio}</span>
+                        <div class="botones">
+                            <button onClick="getID('${item._id}')" id="${item._id}" class="btn-carrito">Añadir al carrito</button>
+                        </div>
                 </div>
-                <div class="date">
-                </div>
-        <div class="data">
-        <div class="content">    
-                <h1 class="title">
-                    <a class="titulo" href="#">${item.nombre}</a>
-                </h1>
-                <span class="precio">Precio: $${item.precio}</span>
-                <div class="botones">
-                    <button onClick= "getID(${item._id})" id="${item._id}">Añadir al carrito</button>
-                    <button onClick= "compraDirecta()" id="comprar" data-open="modal">Comprar ahora</button>
-                </div>
-        </div>
+            </div>
         </div>
     </div>
-</div>
 </a>
         `
 
         document.querySelector("#cartas").innerHTML = templateHTML
         
     })
-    //console.log(templateHTML)
- 
-
 }
 var lista = JSON.parse(localStorage.getItem('carrito')) || []
 var Limpiar 
 
-function getID(event){
-
-
-    lista.push(event)
+function getID(e){
+    console.log(e.target)
+    lista.push(e)
     const unicoCarrito = new Set(lista) 
     var limpiar = [...unicoCarrito]
     
@@ -77,7 +75,7 @@ function getID(event){
     localStorage.setItem('carrito', JSON.stringify(limpiar));
     init()
     
-     }
+}
 
 function search(event){
     let data = []
@@ -98,20 +96,3 @@ function search(event){
 buscador.addEventListener("keyup", search)
 
 
-function bajoStock(){
-
-    var pocos = toDisplay.filter(juguetes=>juguetes.stock <= 5 )
-    console.log(pocos)
-    let alertaPocos = ""
-    
-    pocos.forEach(item=>{
-        alertaPocos +=`
-        <span class="year">Stock</span>
-        <span class="month">Limitado:</span>
-        <span class="day">5</span>
-        `
-
-    })
-
-    document.querySelector(".date").innerHTML = alertaPocos
-}
