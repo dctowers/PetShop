@@ -96,4 +96,3 @@ function search(event){
 buscador.addEventListener("keyup", search)
 
 
-
