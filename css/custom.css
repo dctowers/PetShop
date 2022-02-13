@@ -146,13 +146,14 @@ footer {
 }
 
 .tarjetas {
-  width: 60%;
+  width: 80%;
   min-height: 80rem;
   margin-top: 1rem;
   background-color: rgba(139, 27, 27, 0.637);
   display: flex;
-  justify-content: center;
   color: black;
 }
+
+
 
 /* Estilos pagina de Contacto */

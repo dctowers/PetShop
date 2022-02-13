@@ -1,5 +1,6 @@
 let articulos = []
 let juguetes = []
+let toDisplay = []
 
 
 let buscador = document.querySelector("#buscador")
@@ -12,6 +13,7 @@ async function getData(){
     console.log(juguetes);
 
     updateDisplay()
+    bajoStock()
 }
 
 getData()
@@ -19,54 +21,46 @@ getData()
 //console.log(juguetes)
 
 function updateDisplay(buscado){
-    let toDisplay = []
     if(buscado == undefined){
         toDisplay.push(...juguetes)
     }else{  
         toDisplay.push(...buscado)
     }
     let templateHTML = ""
-    toDisplay.map(item=>{
+    toDisplay.forEach(item=>{
+        
         templateHTML += `
-        <div class="row">
-      <div class="example-1 card">
+<a href="./detalle.html?id=${item._id}">
+<div class="row">
+    <div class="example-1 card">
         <div class="wrapper">
-          <div class="date">
-            <span class="year">Stock ${item.stock<5}</span>
-            <span class="month">Limitado:</span>
-            <span class="day">5</span>
-          </div>
-          <div class="data">
-            <div class="content">
-              <span class="precio">Precio: ${item.precio}</span>
-              <h1 class="title">
-                <a href="#">${item.nombre}</a>
-              </h1>
-              <p class="text">
-                ${item.descripcion}
-              </p>
-              <label for="show-menu" class="menu-button"><span></span></label>
-            </div>
-            <input type="checkbox" id="show-menu" />
-            <ul class="menu-content">
-              <li>
-                <a href="#" class="fa fa-bookmark-o"></a>
-              </li>
-              <li>
-                <a href="#" class="fa fa-heart-o"><span>47</span></a>
-              </li>
-              <li>
-                <a href="#" class="fa fa-comment-o"><span>8</span></a>
-              </li>
-            </ul>
-          </div>
+                <div class="imgdentro">
+                    <img src="${item.imagen}" alt="">
+                </div>
+                <div class="date">
+                    <span class="year">Stock</span>
+                    <span class="month">Limitado:</span>
+                    <span class="day">5</span>
+                </div>
+        <div class="data">
+        <div class="content">    
+                <h1 class="title">
+                    <a class="titulo" href="#">${item.nombre}</a>
+                </h1>
+                <span class="precio">Precio: $${item.precio}</span>
+                <div class="botones">
+                    <button onclick= "añadirCarrito()" id="carrito">Añadir al carrito</button>
+                    <button onclick= "compraDirecta()" id="comprar" data-open="modal">Comprar ahora</button>
+                </div>
         </div>
-      </div>
-    </div>      
+        </div>
+    </div>
+</div>
+</a>
         `
 
         document.querySelector("#cartas").innerHTML = templateHTML
-
+        
     })
     //console.log(templateHTML)
  
@@ -91,4 +85,7 @@ function search(event){
 }
 
 buscador.addEventListener("keyup", search)
+
+
+
 

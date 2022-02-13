@@ -55,7 +55,7 @@ h1 {
 }
 .card .wrapper {
   background-color: #fff;
-  min-height: 540px;
+  min-height: 480px;
   position: relative;
   overflow: hidden;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
@@ -78,8 +78,12 @@ h1 {
 .card .precio {
   font-size: 16px;
 }
-.card .title {
+.card {
   margin-top: 10px;
+}
+.title {
+  margin-bottom: 10px !important;
+  padding: 0 !important;
 }
 .card .text {
   height: 70px;
@@ -91,9 +95,19 @@ h1 {
 .card input[type="checkbox"]:checked + .menu-content {
   transform: translateY(-60px);
 }
-.example-1 .wrapper {
+/* .example-1 .wrapper {
   background: url(https://cdn.shopify.com/s/files/1/0406/8003/0364/products/product-image-1291332388_445a8917-102c-4afe-879b-6f5f37c1a676_1024x1024.jpg?v=1592521690)
     50% 0% / cover no-repeat;
+} */
+.imgdentro {
+  height: 24.5rem;
+  width: 21.6rem;
+  object-position: center;
+  background-color: black;
+}
+.imgdentro img {
+  height: 24.5rem;
+  width: 21.6rem;
 }
 .example-1 .date {
   display: block;
@@ -187,4 +201,9 @@ h1 {
 }
 .example-1 .menu-content span {
   top: -10px;
+}
+.botones {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 5px;
 }
