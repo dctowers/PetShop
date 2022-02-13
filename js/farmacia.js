@@ -2,6 +2,7 @@ var articulos = []
 var imagenes = []
 var medicamentos = []
 let toDisplay = []
+let data = []
 var alerta = document.querySelector("#alerta")
 let buscador = document.querySelector("#buscar")
 buscador.addEventListener("keyup", search)
@@ -17,15 +18,16 @@ async function getData(){
 }
 getData()
 console.log(medicamentos)
-function updateDisplay(buscado){
+function updateDisplay(data){
         
     
 
-        if(buscado == undefined){            
-            toDisplay.push(...medicamentos)
+        if(data){ 
+            toDisplay = []           
+            toDisplay.push(...data)
         }
         else{
-            toDisplay.push(...buscado)
+            toDisplay.push(...medicamentos)
             
         }
         var templateHTML = ""
@@ -67,20 +69,25 @@ function getID(event){
     
     
     localStorage.setItem('carrito', JSON.stringify(clearFav));
-    init()
+    // init()
     
 }
 function search(event){
-    let data = []
-    let buscar = ""
-    buscar = event.target.value
-    console.log(buscar)
-    if(buscar == ""){
+    
+    let buscador = ""
+    buscador = event.target.value
+    console.log(buscador)
+    if(buscador == ""){
+        data =[]
         data.push(...medicamentos)
+        console.log("if")
     }
     else{
-        data.push(...medicamentos.filter(medicamentos=>medicamentos.nombre.toLowerCase().includes(buscar.toLowerCase())))
+        data = []
+        data.push(...medicamentos.filter(medicamentos=>medicamentos.nombre.toLowerCase().includes(buscador.toLowerCase())))
+        console.log("else")
     }
+    updateDisplay(data)
     console.log(data)
     
 }

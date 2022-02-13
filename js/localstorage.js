@@ -41,25 +41,20 @@ function init(){
     toDisplayCarrito.map(item => { 
     
         templateHTMLcarrito += `    
-        <div class="box">
-        <div class="lowstock">
-        </div>
-                    <h4 id="alerta" class="unidadesultimas">Ultimas unidades disponibles</h4>
-                    <img class"imgdentro" src="${item.imagen}">
-                    <div class="texto">
-                        <h2>${item.nombre}</h2>
-                        <h3>precio: $${item.precio}</h3>
-                    </div>
-                    <div class="botones">
-                    <button onClick="removeID('${item._id}')" id="${item._id}" class="btn-carrito">Quirar del carrito</button>
-                    <button onClick="getID('${item._id}')" id="${item._id}" class="btn-carrito">Añadir al carrito</button>
-                    </div>
-              </div>
+        <tr>
+        <td> <img class"imagentabla" src="${item.imagen}" alt="Imagen tabla"></td>
+        <td>${item.nombre}</td>
+        <td>${item.cantidad}</td>
+        <td><button>+</button><button>-</button></td>
+        <td>$${item.precio}</td>
+
+        
+      </tr>
         `
         
     })
     
-    document.querySelector('#cartascarrito').innerHTML = templateHTMLcarrito 
+    document.querySelector('#bodytable').innerHTML = templateHTMLcarrito 
     
 }
 

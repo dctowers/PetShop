@@ -126,7 +126,8 @@ footer {
 /* Estilos pagina Farmacia y Juguetes */
 
 .titulo {
-  width: 60%;
+  width: 90%;
+  max-width: 150ch;
   min-height: 10rem;
   margin-top: 4.1rem;
   /* background-color: rgba(139, 27, 27, 0.637); */
@@ -149,7 +150,7 @@ footer {
   width: 60%;
   min-height: 80rem;
   margin-top: 1rem;
-  background-color: rgba(139, 27, 27, 0.637);
+  /* background-color: rgba(139, 27, 27, 0.637); */
   display: flex;
   justify-content: center;
   color: black;
@@ -182,6 +183,12 @@ footer {
 }
 .box h4 {
   display: block;
+}
+td img {
+  height: 150px !important;
+}
+tr {
+  border-bottom: 1px solid black;
 }
 
 /* Estilos pagina de Contacto */
