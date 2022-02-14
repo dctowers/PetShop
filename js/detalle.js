@@ -30,7 +30,10 @@ async function getData(){
         <div class="detallesid">
         <h2 class="nameid">${seleccionado.nombre}</h2>
         <p class="descriptionid">${seleccionado.descripcion}</p>
+        
+        
     </div>
+    
     </div>
         `           
        })
