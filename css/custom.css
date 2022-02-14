@@ -417,4 +417,19 @@ tr {
   height: 42px;
   width: 42px;
 }
+.mover {
+  margin-top: 2.5rem;
+}
+.textomover {
+  line-height: 7rem;
+}
+.botonesfinales {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+.botonesfinales button {
+  margin: 2rem;
+}
 /* Estilos pagina de Contacto */

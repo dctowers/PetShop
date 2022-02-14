@@ -50,6 +50,7 @@ function updateDisplay(buscado){
                         <span class="precio">Precio: $${item.precio}</span>
                         <div class="botones">
                             <button onClick="getID('${item._id}')" id="${item._id}" class="btn-carrito">Añadir al carrito</button>
+                            <a href="./shop.html"><button onClick="getID('${item._id}')" id="${item._id}" class="btn-comprarnow" >comprar ahora</button></a>
                         </div>
                 </div>
             </div>

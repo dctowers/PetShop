@@ -50,6 +50,7 @@ function updateDisplay(data) {
                         <span class="precio">Precio: $${item.precio}</span>
                         <div class="botones">
                             <button onClick="getID('${item._id}')" id="${item._id}" class="btn-carrito">Añadir al carrito</button>
+                            <a href="./shop.html"><button onClick="getID('${item._id}')" id="${item._id}" class="btn-comprarnow" >comprar ahora</button></a>
                         </div>
                 </div>
             </div>
@@ -65,7 +66,7 @@ console.log(articulos);
 
 var favorites = JSON.parse(localStorage.getItem("favoritos")) || [];
 
-function getID(event) {
+function getID(event){S
   console.log(event);
   favorites.push(event);
   const unicoFav = new Set(favorites); //Dado al recorrer el array anterios me va a dar todas las propiedades, con el metodo set elimino los repetidos y dejo solo el primer elemento encontrado, el resto lo descarta

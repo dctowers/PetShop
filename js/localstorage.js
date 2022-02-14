@@ -45,13 +45,13 @@ function init(){
         templateHTMLcarrito += `    
         <tr>
         <td> <img class"imagentabla" src="${item.imagen}" alt="Imagen tabla"></td>
-        <td>${item.nombre}</td>
-        <td>${item.cantidad}</td>
-        <td><button class="botonmas" onClick="sumaritem('${item._id}')">+</button>
-        <button class="botonborrar" onClick="borrarallitems('${item._id}')">Borrar articulo</button>
-        <button class="botonmenos" onClick="restaitem('${item._id}')">-</button>
+        <td class="textomover" >${item.nombre}</td>
+        <td class="textomover" >${item.cantidad}</td>
+        <td ><button class="mover botonmas" onClick="sumaritem('${item._id}')">+</button>
+        <button class="mover botonborrar" onClick="borrarallitems('${item._id}')">Borrar articulo</button>
+        <button class="mover botonmenos" onClick="restaitem('${item._id}')">-</button>
         </td>
-        <td>$${totalprecio}</td>
+        <td class="textomover">$${totalprecio}</td>
       </tr>
         `
         
@@ -91,14 +91,12 @@ function init(){
             })
         init()    
 }
-
-// function sumarprecios(){
-//     var contador = 0
-//     toDisplayCarrito.forEach(item=>{
-//         var precio =  item.filter(item=> item.cantidad)
-
-//     })
-//     console.log(contador)
-//     init()
-    
-// }
+function borrartodo(){
+        var borrado =[]
+        guardado=borrado
+        localStorage.setItem('carrito', JSON.stringify(guardado))
+init()
+}
+function back(){
+    history.back();
+}
