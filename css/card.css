@@ -83,7 +83,7 @@ main {
   padding: 0.5rem 1rem;
   position: relative;
   z-index: 1;
-  min-height: 11rem;
+  min-height: 12rem;
   background-color: rgb(249, 249, 249);
   box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.3);
 }
@@ -145,6 +145,6 @@ main {
 }
 
 .card:hover .botones {
-  transform: translateY(1.8rem);
+  transform: translateY(-0.4rem);
   transition: transform 0s
 }
