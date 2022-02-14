@@ -351,6 +351,19 @@ textarea {
   align-items: center;
 }
 
+.containerShop {
+  width: 90%;
+  max-width: 150ch;
+  min-height: 10rem;
+  margin-top: 4.1rem;
+  /* background-color: rgba(139, 27, 27, 0.637); */
+  color: black;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
 .divbuscar {
   width: 90%;
   margin-top: 3rem;
@@ -620,7 +633,54 @@ svg{
     background-color: #e8e9eb;
 }
 
+td img {
+  height: 150px !important;
+}
 
+.botonmas {
+  border: 0px;
+  font-size: 22px;
+  background-color: green;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 60px;
+}
+.botonmenos {
+  border: 0px;
+  font-size: 22px;
+  background-color: red;
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+  border-radius: 60px;
+}
+.botonborrar {
+  height: 40px;
+  border-radius: 20px;
+  width: 7rem;
+  border: none;
+  background-color: orange;
+}
+.botonmas:hover {
+  height: 42px;
+  width: 42px;
+}
+.mover {
+  margin-top: 2.5rem;
+}
+.textomover {
+  line-height: 7rem;
+}
+.botonesfinales {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+.botonesfinales button {
+  margin: 2rem;
+}
 
 .elh1s {
   border-radius: 3rem;
