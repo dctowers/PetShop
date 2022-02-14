@@ -184,6 +184,12 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+.containerFooter {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .formulario {
@@ -212,6 +218,7 @@ footer {
 .caja1 {
   min-width: auto;
   display: flex;
+  flex-wrap: wrap;
   /* background-color: #ef6461; */
 }
 
@@ -220,6 +227,7 @@ footer {
   min-height: 11rem;
   margin-top: 1.5rem;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: space-between;
   /* background-color: #ef6461; */
