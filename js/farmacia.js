@@ -10,15 +10,17 @@ async function getData() {
   await fetch("https://apipetshop.herokuapp.com/api/articulos")
     .then((response) => response.json())
     .then((json) => articulos.push(...json.response));
-  medicamentos.push(
-    ...articulos.filter((articulo) => articulo.tipo === "Medicamento")
+  medicamentos.push(...articulos.filter((articulo) => articulo.tipo === "Medicamento")
   );
 
   updateDisplay();
-  bajoStock();
 }
+
+
 getData();
-console.log(medicamentos);
+
+
+
 function updateDisplay(data) {
   if (data) {
     toDisplay = [];
@@ -32,47 +34,76 @@ function updateDisplay(data) {
       item.stock <= 5 ? `<p class="text-danger">Ultimas unidades!</p>` : ` `;
 
     templateHTML += `
-    <a href="./detalle.html?id=${item._id}">
-    <div class="row">
-        <div class="example-1 card">
-            <div class="wrapper">
-                    <p>${alerta}</p>
-                    <div class="imgdentro">
-                        <img src="${item.imagen}" alt="">
-                    </div>
-                    <div class="date">
-                    </div>
-                <div class="data">
-                <div class="content">    
-                        <h1 class="title">
-                            <a class="titulo" href="#">${item.nombre}</a>
-                        </h1>
-                        <span class="precio">Precio: $${item.precio}</span>
-                        <div class="botones">
-                            <button onClick="getID('${item._id}')" id="${item._id}" class="btn-carrito">Añadir al carrito</button>
-                        </div>
-                </div>
-            </div>
+      <div class="card">
+        ${alerta}
+        <div class="cardImg">
+          <a href="./detalle.html?id=${item._id}">
+            <img src="${item.imagen}" alt="" />
+          </a>
         </div>
-    </div>
-</a>`;
+        <div class="data">
+          <div class="content">
+            <p class="title">${item.nombre}</p>
+            <p class="price">Precio: $${item.precio}</p>
+            <div class="botones">
+              <button
+                onClick="getID('${item._id}')"
+                id="${item._id}"
+                class="btn btn-primary"
+              >
+                Añadir al carrito
+              </button>
+              <a href="./shop.html"
+                ><button
+                  onClick="getID('${item._id}')"
+                  id="${item._id}"
+                  class="btn btn-primary"
+                >
+                  comprar ahora
+                </button></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+`;
 
     // console.log(medicamentos)
     document.querySelector("#cartas").innerHTML = templateHTML;
   });
 }
-console.log(articulos);
 
 var favorites = JSON.parse(localStorage.getItem("favoritos")) || [];
 
-function getID(event) {
-  console.log(event);
+function getID(event){
   favorites.push(event);
-  const unicoFav = new Set(favorites); //Dado al recorrer el array anterios me va a dar todas las propiedades, con el metodo set elimino los repetidos y dejo solo el primer elemento encontrado, el resto lo descarta
+  const unicoFav = new Set(favorites); 
   var clearFav = [...unicoFav];
 
+ 
+    var badge = ""  
+    // var vallabel = JSON.parse(localStorage.getItem('carrito'))  
+    console.log(clearFav.length)
+    
+    if(clearFav.length >= 0){
+      console.log("diferenre de 0")
+        badge = `
+        <h1 id="elh1" class="elh1s" >${clearFav.length}</h1>
+        `
+        document.querySelector("#elh1").innerHTML = badge
+        
+  
+    }
+    else if(clearFav.length == 0){
+        console.log("es 0")
+         h1s.style.visibility = "hidden"
+        }
+
+  
+
+ 
   localStorage.setItem("carrito", JSON.stringify(clearFav));
-  // init()
+ 
 }
 function search(event) {
   let buscador = "";
@@ -81,36 +112,12 @@ function search(event) {
   if (buscador == "") {
     data = [];
     data.push(...medicamentos);
-    console.log("if");
+  
   } else {
     data = [];
-    data.push(
-      ...medicamentos.filter((medicamentos) =>
-        medicamentos.nombre.toLowerCase().includes(buscador.toLowerCase())
-      )
-    );
-    console.log("else");
+    data.push(...medicamentos.filter((medicamentos) =>medicamentos.nombre.toLowerCase().includes(buscador.toLowerCase())));
   }
   updateDisplay(data);
   console.log(data);
 }
 
-function bajoStock() {
-  var alertastock = document.querySelectorAll(".unidadesultimas");
-  // console.log(alertastock)
-  var pocos = toDisplay.filter((juguetes) => juguetes.stock <= 5);
-  console.log(pocos);
-  var templateHTML = "Ultimos en stock";
-
-  // juguetes.forEach(items=>{
-  //     if(items.stock <= 5){
-
-  //     }
-
-  // var alertapocos = document.querySelector(".lowstock")
-  // var alert = document.createElement("span")
-
-  // alert.append(templateHTML)
-  // alertapocos.append(alert)
-  // })
-}

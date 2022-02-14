@@ -18,27 +18,36 @@
   <body>
     <div id="cartas" class="containerGrid">
       <div class="card">
-        <a href="./detalle.html?id=${item._id}">
-          ${alerta}
-          <div class="cardImg">
+        ${alerta}
+        <div class="cardImg">
+          <a href="./detalle.html?id=${item._id}">
             <img src="${item.imagen}" alt="" />
-          </div>
-          <div class="data">
-            <div class="content">
-              <p class="title">${item.nombre}</p>
-              <p class="price">Precio: $${item.precio}</p>
-              <div class="botones">
-                <button
+          </a>
+        </div>
+        <div class="data">
+          <div class="content">
+            <p class="title">${item.nombre}</p>
+            <p class="price">Precio: $${item.precio}</p>
+            <div class="botones">
+              <button
+                onClick="getID('${item._id}')"
+                id="${item._id}"
+                class="btn btn-primary"
+              >
+                Añadir al carrito
+              </button>
+              <a href="./shop.html"
+                ><button
                   onClick="getID('${item._id}')"
                   id="${item._id}"
                   class="btn btn-primary"
                 >
-                  Añadir al carrito
-                </button>
-              </div>
+                  comprar ahora
+                </button></a
+              >
             </div>
           </div>
-        </a>
+        </div>
       </div>
     </div>
   </body>
