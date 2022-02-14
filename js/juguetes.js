@@ -1,45 +1,39 @@
-let articulos = [];
-let juguetes = [];
+var articulos = [];
+var imagenes = [];
+var juguetes = [];
 let toDisplay = [];
-
-let buscador = document.querySelector("#buscador");
-
+let data = [];
+var alerta = document.querySelector("#alerta");
+let buscador = document.querySelector("#buscar");
+buscador.addEventListener("keyup", search);
 async function getData() {
   await fetch("https://apipetshop.herokuapp.com/api/articulos")
     .then((response) => response.json())
     .then((json) => articulos.push(...json.response));
-  juguetes.push(
-    ...articulos.filter((articulos) => articulos.tipo === "Juguete")
+  juguetes.push(...articulos.filter((articulo) => articulo.tipo === "Juguete")
   );
-  // console.log(juguetes);
 
-  async function getData() {
-    await fetch("https://apipetshop.herokuapp.com/api/articulos")
-      .then(response => response.json())
-      .then(json => articulos.push(...json.response))
-    juguetes.push(...articulos.filter(articulos => articulos.tipo === "Juguete"))
+  updateDisplay();
+}
 
-    updateDisplay()
 
+getData();
+
+
+
+function updateDisplay(data) {
+  if (data) {
+    toDisplay = [];
+    toDisplay.push(...data);
+  } else {
+    toDisplay.push(...juguetes);
   }
+  var templateHTML = "";
+  toDisplay.map((item) => {
+    let alerta =
+      item.stock <= 5 ? `<p class="text-danger">Ultimas unidades!</p>` : ` `;
 
-}getData();
-
-
-
-function updateDisplay(buscado){
-    if(buscado){
-        toDisplay = [];
-        toDisplay.push(...buscado)
-    }else{  
-        toDisplay.push(...juguetes)
-    }
-    let templateHTML = ""
-    toDisplay.forEach(item=>{
-
-        let alerta = item.stock <= 5 ? `<p class="date">Ultimas unidades!</p>`:` `
-        
-        templateHTML += `
+    templateHTML += `
       <div class="card">
         ${alerta}
         <div class="cardImg">
@@ -72,71 +66,58 @@ function updateDisplay(buscado){
           </div>
         </div>
       </div>
-        `;
+`;
 
+    // console.log(juguetes)
     document.querySelector("#cartas").innerHTML = templateHTML;
   });
 }
-var lista = JSON.parse(localStorage.getItem("carrito")) || [];
-var Limpiar;
+
+var favorites = JSON.parse(localStorage.getItem("favoritos")) || [];
 
 function getID(event){
-    // console.log(e.target)
-    lista.push(event)
-    const unicoCarrito = new Set(lista) 
-    var limpiar = [...unicoCarrito]
+  favorites.push(event);
+  const unicoFav = new Set(favorites); 
+  var clearFav = [...unicoFav];
 
+ 
     var badge = ""  
     // var vallabel = JSON.parse(localStorage.getItem('carrito'))  
-    console.log(limpiar.length)
+    console.log(clearFav.length)
     
-    if(limpiar.length >= 0){
+    if(clearFav.length >= 0){
       console.log("diferenre de 0")
         badge = `
-        <h1 id="elh1" class="elh1s" >${limpiar.length}</h1>
+        <h1 id="elh1" class="elh1s" >${clearFav.length}</h1>
         `
-        document.querySelector("#cartitas").innerHTML = badge
+        document.querySelector("#elh1").innerHTML = badge
         
   
     }
-    else if(limpiar.length == 0){
+    else if(clearFav.length == 0){
         console.log("es 0")
-        h1s.style.visibility = "hidden"
+         h1s.style.visibility = "hidden"
         }
 
-    
-    
-    localStorage.setItem('carrito', JSON.stringify(limpiar));
+  
 
-    
+ 
+  localStorage.setItem("carrito", JSON.stringify(clearFav));
+ 
 }
-
-function search(event){
-    let datitos = []
-    let buscar = ""
-    buscar = event.target.value
-    console.log(buscar)
-
-    if(buscar == ""){
-        datitos = [];
-        datitos.push(...juguetes)
-    }else{
-        datitos.push(...juguetes.filter(juguete => juguete.nombre.toLowerCase().includes(buscar.toLowerCase())))
-    }
-    console.log(datitos);
-    updateDisplay(datitos)
-
-  if (buscar == "") {
+function search(event) {
+  let buscador = "";
+  buscador = event.target.value;
+  console.log(buscador);
+  if (buscador == "") {
+    data = [];
     data.push(...juguetes);
+  
   } else {
-    data.push(
-      ...juguetes.filter((juguete) =>
-        juguete.nombre.toLowerCase().includes(buscar.toLowerCase())
-      )
-    );
+    data = [];
+    data.push(...juguetes.filter((juguetes) =>juguetes.nombre.toLowerCase().includes(buscador.toLowerCase())));
   }
-  console.log(data);
   updateDisplay(data);
+  console.log(data);
 }
 
-buscador.addEventListener("keyup", search);
