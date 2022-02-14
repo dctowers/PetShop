@@ -1,58 +1,104 @@
-let items = [];
-var guardado = [];
-var array = [];
+let items = []
+var guardado = []
+var array = []
+var toDisplayCarrito = []
+var totalprecio = 0
+var contador = 0
 
-async function data() {
-  await fetch("https://apipetshop.herokuapp.com/api/articulos")
-    .then((response) => response.json())
-    .then((json) => items.push(...json.response));
-  items.map((items) => {
-    items.cantidad = 1;
-  });
-
-  init();
+async function data(){ 
+    await fetch("https://apipetshop.herokuapp.com/api/articulos") 
+    .then(response => response.json())
+    .then(json => items.push(...json.response))
+    items.map(items=>{
+        items.cantidad=1;
+    })
+    
+    
+ init()      
 }
-data();
-function init() {
-  var dataLocal = JSON.parse(localStorage.getItem("carrito"));
-  if (dataLocal != null) {
-    guardado = dataLocal;
-  } else {
-    guardado = [];
-  }
+data()
+function init(){
+    
+    var dataLocal = JSON.parse(localStorage.getItem('carrito'))
+        if(dataLocal !=null ){
+            guardado = dataLocal
+        }else{guardado=[]}
+    
+    console.log(guardado)
 
-  console.log(guardado);
+    var toDisplayCarrito = []
+         
+    // console.log(items)
+    guardado.map(idguardado =>{
 
-  var toDisplayCarrito = [];
-  // console.log(items)
-  guardado.map((idguardado) => {
-    toDisplayCarrito.push(
-      ...items.filter((objetos) => objetos._id == idguardado)
-    );
-  });
-  var templateHTMLcarrito = "";
+    
 
-  toDisplayCarrito.map((item) => {
-    templateHTMLcarrito += `    
+    toDisplayCarrito.push(...items.filter(objetos => objetos._id == idguardado))
+    
+    })
+    var templateHTMLcarrito = "" 
+    
+    contador = 0
+    toDisplayCarrito.map(item => { 
+    totalprecio = item.cantidad * item.precio;
+    contador += totalprecio
+        templateHTMLcarrito += `    
         <tr>
         <td> <img class"imagentabla" src="${item.imagen}" alt="Imagen tabla"></td>
         <td>${item.nombre}</td>
         <td>${item.cantidad}</td>
-        <td><button>+</button><button>-</button></td>
-        <td>$${item.precio}</td>
-        
+        <td><button class="botonmas" onClick="sumaritem('${item._id}')">+</button>
+        <button class="botonborrar" onClick="borrarallitems('${item._id}')">Borrar articulo</button>
+        <button class="botonmenos" onClick="restaitem('${item._id}')">-</button>
+        </td>
+        <td>$${totalprecio}</td>
       </tr>
-        `;
-  });
-
-  document.querySelector("#bodytable").innerHTML = templateHTMLcarrito;
+        `
+        
+    })
+    document.querySelector('#bodytable').innerHTML = templateHTMLcarrito
+    document.querySelector("#totalcarrito").innerHTML = "$" + contador 
+    
 }
 
-init();
-function removeID(event) {
-  guardado = guardado.filter((idguardado) => idguardado != event);
-  localStorage.setItem("carrito", JSON.stringify(guardado));
-  //localStorage.setItem("cargaControl", "Secargo")
-  init();
-  console.log(guardado);
+    init()
+    var counter = []
+    function borrarallitems(event){
+
+        guardado = guardado.filter(idguardado => idguardado != event)
+        localStorage.setItem('carrito', JSON.stringify(guardado))
+   
+        init()
+    }    
+    function sumaritem(event){
+        cantidad = []
+        var itempuntual = items.filter(items=>items._id == event)
+        cantidad.push(...toDisplayCarrito.filter(items =>items._id == event))
+        itempuntual.map(items => items.cantidad++)
+  
+        
+            init()    
+    }
+    function restaitem(event){
+        cantidad = []
+        var itempuntual = items.filter(items=>items._id == event)
+        cantidad.push(...toDisplayCarrito.filter(items =>items._id == event))
+        itempuntual.map(items => items.cantidad--)
+            itempuntual.forEach(item => {
+                if(item.cantidad == 0){
+                    borrarallitems(item._id)
+                }
+            })
+        init()    
 }
+
+// function sumarprecios(){
+//     var contador = 0
+//     toDisplayCarrito.forEach(item=>{
+//         var precio =  item.filter(item=> item.cantidad)
+
+//     })
+//     console.log(contador)
+//     init()
+    
+// }
