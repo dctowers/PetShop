@@ -73,7 +73,7 @@ function updateDisplay(data) {
   });
 }
 
-var favorites = JSON.parse(localStorage.getItem("favoritos")) || [];
+var favorites = JSON.parse(localStorage.getItem("carrito")) || [];
 
 function getID(event){
   favorites.push(event);
