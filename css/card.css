@@ -50,7 +50,7 @@ main {
 }
 
 .card {
-  max-width: 50ch;
+  max-width: 37ch;
   box-shadow: 0 1em 2em rgb(0 0 0 / 0.2);
   transition: transform ease 250ms;
   border-radius: 0.5rem;
@@ -125,7 +125,7 @@ main {
   color: #2f2f2f;
 }
 
-.price {
+.price a{
   font-size: 1.5rem;
   color: #161616;
 }
