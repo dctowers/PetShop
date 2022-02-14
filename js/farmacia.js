@@ -29,7 +29,7 @@ function updateDisplay(data) {
   var templateHTML = "";
   toDisplay.map((item) => {
     let alerta =
-      item.stock <= 5 ? `<p class="text-danger">Ultimas unidades!</p>` : ` `;
+      item.stock <= 5 ? `<p class="stock">Ultimas unidades!</p>` : ` `;
 
     templateHTML += `
       <div class="card">
@@ -73,7 +73,7 @@ function updateDisplay(data) {
   });
 }
 
-var favorites = JSON.parse(localStorage.getItem("carrito")) || [];
+var favorites = JSON.parse(localStorage.getItem("favoritos")) || [];
 
 function getID(event) {
   favorites.push(event);

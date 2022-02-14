@@ -10,16 +10,12 @@ async function getData() {
   await fetch("https://apipetshop.herokuapp.com/api/articulos")
     .then((response) => response.json())
     .then((json) => articulos.push(...json.response));
-  juguetes.push(...articulos.filter((articulo) => articulo.tipo === "Juguete")
-  );
+  juguetes.push(...articulos.filter((articulo) => articulo.tipo === "Juguete"));
 
   updateDisplay();
 }
 
-
 getData();
-
-
 
 function updateDisplay(data) {
   if (data) {
@@ -31,7 +27,7 @@ function updateDisplay(data) {
   var templateHTML = "";
   toDisplay.map((item) => {
     let alerta =
-      item.stock <= 5 ? `<p class="text-danger">Ultimas unidades!</p>` : ` `;
+      item.stock <= 5 ? `<p class="stock">Ultimas unidades!</p>` : ` `;
 
     templateHTML += `
       <div class="card">
@@ -77,35 +73,27 @@ function updateDisplay(data) {
 
 var favorites = JSON.parse(localStorage.getItem("favoritos")) || [];
 
-function getID(event){
+function getID(event) {
   favorites.push(event);
-  const unicoFav = new Set(favorites); 
+  const unicoFav = new Set(favorites);
   var clearFav = [...unicoFav];
 
- 
-    var badge = ""  
-    // var vallabel = JSON.parse(localStorage.getItem('carrito'))  
-    console.log(clearFav.length)
-    
-    if(clearFav.length >= 0){
-      console.log("diferenre de 0")
-        badge = `
+  var badge = "";
+  // var vallabel = JSON.parse(localStorage.getItem('carrito'))
+  console.log(clearFav.length);
+
+  if (clearFav.length >= 0) {
+    console.log("diferenre de 0");
+    badge = `
         <h1 id="elh1" class="elh1s" >${clearFav.length}</h1>
-        `
-        document.querySelector("#elh1").innerHTML = badge
-        
-  
-    }
-    else if(clearFav.length == 0){
-        console.log("es 0")
-         h1s.style.visibility = "hidden"
-        }
+        `;
+    document.querySelector("#elh1").innerHTML = badge;
+  } else if (clearFav.length == 0) {
+    console.log("es 0");
+    h1s.style.visibility = "hidden";
+  }
 
-  
-
- 
   localStorage.setItem("carrito", JSON.stringify(clearFav));
- 
 }
 function search(event) {
   let buscador = "";
@@ -114,12 +102,14 @@ function search(event) {
   if (buscador == "") {
     data = [];
     data.push(...juguetes);
-  
   } else {
     data = [];
-    data.push(...juguetes.filter((juguetes) =>juguetes.nombre.toLowerCase().includes(buscador.toLowerCase())));
+    data.push(
+      ...juguetes.filter((juguetes) =>
+        juguetes.nombre.toLowerCase().includes(buscador.toLowerCase())
+      )
+    );
   }
   updateDisplay(data);
   console.log(data);
 }
-
