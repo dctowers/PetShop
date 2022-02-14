@@ -10,16 +10,14 @@ async function getData() {
   await fetch("https://apipetshop.herokuapp.com/api/articulos")
     .then((response) => response.json())
     .then((json) => articulos.push(...json.response));
-  medicamentos.push(...articulos.filter((articulo) => articulo.tipo === "Medicamento")
+  medicamentos.push(
+    ...articulos.filter((articulo) => articulo.tipo === "Medicamento")
   );
 
   updateDisplay();
 }
 
-
 getData();
-
-
 
 function updateDisplay(data) {
   if (data) {
@@ -43,13 +41,15 @@ function updateDisplay(data) {
         </div>
         <div class="data">
           <div class="content">
-            <p class="title">${item.nombre}</p>
+            <p class="title">
+              <a href="./detalle.html?id=${item._id}"> ${item.nombre} </a>
+            </p>
             <p class="price">Precio: $${item.precio}</p>
             <div class="botones">
               <button
                 onClick="getID('${item._id}')"
                 id="${item._id}"
-                class="btn btn-primary"
+                class="btn btn-primary enviar"
               >
                 Añadir al carrito
               </button>
@@ -57,7 +57,7 @@ function updateDisplay(data) {
                 ><button
                   onClick="getID('${item._id}')"
                   id="${item._id}"
-                  class="btn btn-primary"
+                  class="btn btn-primary enviar"
                 >
                   comprar ahora
                 </button></a
@@ -75,35 +75,27 @@ function updateDisplay(data) {
 
 var favorites = JSON.parse(localStorage.getItem("carrito")) || [];
 
-function getID(event){
+function getID(event) {
   favorites.push(event);
-  const unicoFav = new Set(favorites); 
+  const unicoFav = new Set(favorites);
   var clearFav = [...unicoFav];
 
- 
-    var badge = ""  
-    // var vallabel = JSON.parse(localStorage.getItem('carrito'))  
-    console.log(clearFav.length)
-    
-    if(clearFav.length >= 0){
-      console.log("diferenre de 0")
-        badge = `
+  var badge = "";
+  // var vallabel = JSON.parse(localStorage.getItem('carrito'))
+  console.log(clearFav.length);
+
+  if (clearFav.length >= 0) {
+    console.log("diferenre de 0");
+    badge = `
         <h1 id="elh1" class="elh1s" >${clearFav.length}</h1>
-        `
-        document.querySelector("#elh1").innerHTML = badge
-        
-  
-    }
-    else if(clearFav.length == 0){
-        console.log("es 0")
-         h1s.style.visibility = "hidden"
-        }
+        `;
+    document.querySelector("#elh1").innerHTML = badge;
+  } else if (clearFav.length == 0) {
+    console.log("es 0");
+    h1s.style.visibility = "hidden";
+  }
 
-  
-
- 
   localStorage.setItem("carrito", JSON.stringify(clearFav));
- 
 }
 function search(event) {
   let buscador = "";
@@ -112,12 +104,14 @@ function search(event) {
   if (buscador == "") {
     data = [];
     data.push(...medicamentos);
-  
   } else {
     data = [];
-    data.push(...medicamentos.filter((medicamentos) =>medicamentos.nombre.toLowerCase().includes(buscador.toLowerCase())));
+    data.push(
+      ...medicamentos.filter((medicamentos) =>
+        medicamentos.nombre.toLowerCase().includes(buscador.toLowerCase())
+      )
+    );
   }
   updateDisplay(data);
   console.log(data);
 }
-

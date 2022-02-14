@@ -43,13 +43,15 @@ function updateDisplay(data) {
         </div>
         <div class="data">
           <div class="content">
-            <p class="title">${item.nombre}</p>
+            <p class="title">
+              <a href="./detalle.html?id=${item._id}"> ${item.nombre} </a>
+            </p>
             <p class="price">Precio: $${item.precio}</p>
             <div class="botones">
               <button
                 onClick="getID('${item._id}')"
                 id="${item._id}"
-                class="btn btn-primary"
+                class="btn btn-primary enviar"
               >
                 Añadir al carrito
               </button>
@@ -57,7 +59,7 @@ function updateDisplay(data) {
                 ><button
                   onClick="getID('${item._id}')"
                   id="${item._id}"
-                  class="btn btn-primary"
+                  class="btn btn-primary enviar"
                 >
                   comprar ahora
                 </button></a
