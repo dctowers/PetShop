@@ -38,6 +38,12 @@ header {
   align-items: center;
   font-family: "Prompt", sans-serif;
   letter-spacing: 4px;
+  text-decoration: none;
+  color: black;
+}
+
+.encabezado:hover{
+  color:#cf7124;
 }
 
 .encabezado h3 {
@@ -523,7 +529,7 @@ svg{
 
 .veterinarios{
   width: 90%;
-  height: 3rem;
+  min-height: auto;
   /* border: 3px solid green; */
   text-align: center;
   font-family: 'Pragati Narrow', sans-serif;
