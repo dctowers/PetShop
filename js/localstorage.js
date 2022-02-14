@@ -4,7 +4,7 @@ var array = []
 var toDisplayCarrito = []
 var totalprecio = 0
 var contador = 0
-
+var h1s = document.querySelector("#elh1")
 async function data(){ 
     await fetch("https://apipetshop.herokuapp.com/api/articulos") 
     .then(response => response.json())
@@ -18,14 +18,30 @@ async function data(){
 }
 data()
 function init(){
-    
+
     var dataLocal = JSON.parse(localStorage.getItem('carrito'))
         if(dataLocal !=null ){
             guardado = dataLocal
         }else{guardado=[]}
-    
-    console.log(guardado)
 
+        var badge = ""  
+        if(guardado.length >= 1){
+            
+            badge = `
+            <h1 id="elh1" class="elh1s" style="visibility: visible;">${guardado.length}</h1>
+            `
+            document.querySelector("#elh1").innerHTML = badge
+            
+    
+        }
+        else if(guardado.length == 0){
+                h1s.style.visibility = "hidden";
+                badge = `
+                <h1 id="elh1" class="elh1s" style="visibility: hidden;">${guardado.length}</h1>
+                `
+                document.querySelector("#elh1").innerHTML = badge
+    
+            }
     var toDisplayCarrito = []
          
     // console.log(items)
@@ -67,6 +83,7 @@ function init(){
 
         guardado = guardado.filter(idguardado => idguardado != event)
         localStorage.setItem('carrito', JSON.stringify(guardado))
+        console.log(h1s.style.visibility)
    
         init()
     }    
@@ -95,6 +112,7 @@ function borrartodo(){
         var borrado =[]
         guardado=borrado
         localStorage.setItem('carrito', JSON.stringify(guardado))
+        h1s.style.visibility = "hidden";
 init()
 }
 function back(){

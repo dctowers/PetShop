@@ -10,15 +10,14 @@ async function getData(){
     .then(response => response.json())
     .then(json => articulos.push(...json.response))
     juguetes.push(...articulos.filter(articulos=>articulos.tipo === "Juguete"))
-    // console.log(juguetes);
 
     updateDisplay()
-    bajoStock()
+
 }
 
 getData()
 
-//console.log(juguetes)
+
 
 function updateDisplay(buscado){
     if(buscado == undefined){
@@ -66,15 +65,34 @@ function updateDisplay(buscado){
 var lista = JSON.parse(localStorage.getItem('carrito')) || []
 var Limpiar 
 
-function getID(e){
-    console.log(e.target)
-    lista.push(e)
+function getID(event){
+    // console.log(e.target)
+    lista.push(event)
     const unicoCarrito = new Set(lista) 
     var limpiar = [...unicoCarrito]
+
+    var badge = ""  
+    var vallabel = JSON.parse(localStorage.getItem('carrito'))  
+    console.log(vallabel.length)
+    
+    if(vallabel.length >= 0){
+      console.log("diferenre de 0")
+        badge = `
+        <h1 id="elh1" class="elh1s" >${limpiar.length}</h1>
+        `
+        document.querySelector("#cartitas").innerHTML = badge
+        
+  
+    }
+    else if(vallabel.length == 0){
+        console.log("es 0")
+         h1s.style.visibility = "hidden"
+        }
+
     
     
     localStorage.setItem('carrito', JSON.stringify(limpiar));
-    init()
+
     
 }
 

@@ -386,7 +386,7 @@ td img {
   height: 150px !important;
 }
 tr {
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
 }
 .botonmas {
   border: 0px;
@@ -431,5 +431,19 @@ tr {
 }
 .botonesfinales button {
   margin: 2rem;
+}
+
+.elh1s {
+  border-radius: 3rem;
+  background-color: red;
+  color: white;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 0px;
+  border-radius: 3rem;
+  font-size: 1.3rem;
+  font-weight: 900;
+  margin: 0;
+  text-align: center;
 }
 /* Estilos pagina de Contacto */

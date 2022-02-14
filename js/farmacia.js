@@ -10,15 +10,17 @@ async function getData() {
   await fetch("https://apipetshop.herokuapp.com/api/articulos")
     .then((response) => response.json())
     .then((json) => articulos.push(...json.response));
-  medicamentos.push(
-    ...articulos.filter((articulo) => articulo.tipo === "Medicamento")
+  medicamentos.push(...articulos.filter((articulo) => articulo.tipo === "Medicamento")
   );
 
   updateDisplay();
-  bajoStock();
 }
+
+
 getData();
-console.log(medicamentos);
+
+
+
 function updateDisplay(data) {
   if (data) {
     toDisplay = [];
@@ -62,18 +64,38 @@ function updateDisplay(data) {
     document.querySelector("#cartas").innerHTML = templateHTML;
   });
 }
-console.log(articulos);
 
 var favorites = JSON.parse(localStorage.getItem("favoritos")) || [];
 
-function getID(event){S
-  console.log(event);
+function getID(event){
   favorites.push(event);
-  const unicoFav = new Set(favorites); //Dado al recorrer el array anterios me va a dar todas las propiedades, con el metodo set elimino los repetidos y dejo solo el primer elemento encontrado, el resto lo descarta
+  const unicoFav = new Set(favorites); 
   var clearFav = [...unicoFav];
 
+ 
+    var badge = ""  
+    var vallabel = JSON.parse(localStorage.getItem('carrito'))  
+    console.log(vallabel.length)
+    
+    if(vallabel.length >= 0){
+      console.log("diferenre de 0")
+        badge = `
+        <h1 id="elh1" class="elh1s" >${clearFav.length}</h1>
+        `
+        document.querySelector("#elh1").innerHTML = badge
+        
+  
+    }
+    else if(vallabel.length == 0){
+        console.log("es 0")
+         h1s.style.visibility = "hidden"
+        }
+
+  
+
+ 
   localStorage.setItem("carrito", JSON.stringify(clearFav));
-  // init()
+ 
 }
 function search(event) {
   let buscador = "";
@@ -82,36 +104,12 @@ function search(event) {
   if (buscador == "") {
     data = [];
     data.push(...medicamentos);
-    console.log("if");
+  
   } else {
     data = [];
-    data.push(
-      ...medicamentos.filter((medicamentos) =>
-        medicamentos.nombre.toLowerCase().includes(buscador.toLowerCase())
-      )
-    );
-    console.log("else");
+    data.push(...medicamentos.filter((medicamentos) =>medicamentos.nombre.toLowerCase().includes(buscador.toLowerCase())));
   }
   updateDisplay(data);
   console.log(data);
 }
 
-function bajoStock() {
-  var alertastock = document.querySelectorAll(".unidadesultimas");
-  // console.log(alertastock)
-  var pocos = toDisplay.filter((juguetes) => juguetes.stock <= 5);
-  console.log(pocos);
-  var templateHTML = "Ultimos en stock";
-
-  // juguetes.forEach(items=>{
-  //     if(items.stock <= 5){
-
-  //     }
-
-  // var alertapocos = document.querySelector(".lowstock")
-  // var alert = document.createElement("span")
-
-  // alert.append(templateHTML)
-  // alertapocos.append(alert)
-  // })
-}
