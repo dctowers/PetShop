@@ -41,14 +41,13 @@ function updateDisplay(buscado) {
           </div>
           <div class="data">
             <div class="content">
-              <p class="title">Antiparasitario Interno Total Full CG Perros - 15 Cc
-</p>
+              <p class="title">${item.nombre}</p>
               <p class="price">Precio: $${item.precio}</p>
               <div class="botones">
                 <button
                   onClick="getID('${item._id}')"
                   id="${item._id}"
-                  class="btn btn-primary"
+                  class="btn btn-primary enviar"
                 >
                   Añadir al carrito
                 </button>
