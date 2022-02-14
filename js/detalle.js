@@ -25,7 +25,7 @@ async function getData(){
         <div class="tarjetadetalles"> 
         <div class="imgyprecio">
         <img class="imgtarjeta" src="${seleccionado.imagen}" alt="">
-        <h3 class="precio">🛒$${seleccionado.precio}</h3>
+        <h3 class="precio">$${seleccionado.precio}</h3>
         </div>
         <div class="detallesid">
         <h2 class="nameid">${seleccionado.nombre}</h2>

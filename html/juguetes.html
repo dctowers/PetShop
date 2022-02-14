@@ -141,6 +141,7 @@
         <!-- Seccion dinamica de cartas -->
       </div>
     </main>
+
     <footer id="contacto">
       <section class="informacion">
         <div class="caja1">
@@ -183,7 +184,24 @@
             <img src="../assets/youtube.png" alt="" class="loguitosredes" />
           </div>
           <div class="nosotros">
-            <p>Aca va informacion nuestra pero no sé que poner</p>
+            <a
+              href="https://www.linkedin.com/in/alan-ezequiel-torrez-23a462224/"
+              class="nombres"
+              >Alan Torrez</a
+            >
+            <a
+              href="https://ar.linkedin.com/in/francisco-sabato-9b2945b5"
+              class="nombres"
+              >Francisco Sabato</a
+            >
+            <a
+              href="https://www.linkedin.com/in/andres-innamorati-a3993a226/"
+              class="nombres"
+              >Andrés Innamorati</a
+            >
+            <a href="https://github.com/dctowers" class="nombres"
+              >Diego Torres</a
+            >
           </div>
           <div class="derechos">
             <div class="cierre">
@@ -228,13 +246,6 @@
             </div>
           </div>
         </div>
-        <!--  <div class="consulta">
-        <h3>Contactos:</h3>
-      </div>
-      <p>Telefono: +5401125369584</p>
-      <p>Correo: francopet@gmail.com</p>
-      <p>Direccion:</p>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d820.9217129491178!2d-58.4305208713911!3d-34.61207925167668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca429815227f%3A0x5d302e497c2cda87!2sR%C3%ADo%20de%20Janeiro%20300%2C%20C1405CCB%20CABA!5e0!3m2!1ses!2sar!4v1644702043308!5m2!1ses!2sar" width="250" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
       </section>
 
       <section class="formulario">
@@ -257,7 +268,7 @@
               >Teléfono:</label
             >
             <div class="input-group">
-              <span class="input-group-text">+54</span>
+              <span class="verde input-group-text">+54</span>
               <input
                 type="number"
                 class="form-control"
@@ -291,7 +302,7 @@
           <div class="col-md-3 position-relative">
             <label class="form-label">Peso:</label>
             <div class="input-group">
-              <span class="input-group-text">Kg</span>
+              <span class="verde input-group-text">Kg</span>
               <input
                 type="number"
                 class="form-control"
@@ -314,9 +325,9 @@
 
           <div class="col-12">
             <button
-              class="btn btn-primary enviar"
+              class="enviar btn btn-primary"
               type="submit"
-              onclick="submit()"
+              href="#modalconsulta"
             >
               Enviar
             </button>
@@ -324,6 +335,7 @@
         </form>
       </section>
     </footer>
+    
     <script src="../js/juguetes.js"></script>
     <script src="../js/localstorage.js"></script>
     <script

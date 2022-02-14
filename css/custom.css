@@ -552,7 +552,8 @@ svg{
 /* Tarjeta de detalles: */
 
 .tarjetadetalles{
-  width: 55rem;
+  width: 50rem;
+  height: 25rem;
   border: 3px solid black;
   background-color: #e8e9eb;
   font-family: 'Prompt', sans-serif;
@@ -563,13 +564,13 @@ svg{
   width: 50%;
   padding: 1rem 0;
   padding: 1rem 1rem;
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
   display: flex;
   flex-direction: column;
 }
 
 .nameid{
-  background-color: beige;
+  /* background-color: beige; */
   display: flex;
   text-align: center;
 }
@@ -591,7 +592,7 @@ svg{
   padding: 1rem 0;
   min-height: auto;
   padding: 1rem 1rem;
-  background-color: darkcyan;
+  /* background-color: darkcyan; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
