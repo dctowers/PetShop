@@ -16,8 +16,8 @@ body {
   flex-direction: column;
 }
 
-html{
-    scroll-behavior: smooth;
+html {
+  scroll-behavior: smooth;
 }
 
 header {
@@ -42,8 +42,8 @@ header {
   color: black;
 }
 
-.encabezado:hover{
-  color:#cf7124;
+.encabezado:hover {
+  color: #cf7124;
 }
 
 .encabezado h3 {
@@ -74,11 +74,11 @@ nav a:hover {
   width: 2rem;
 }
 
-.dropdown-menu[data-bs-popper]{
+.dropdown-menu[data-bs-popper] {
   width: 16rem;
   top: 100%;
   left: -250%;
-  font-family: 'Pragati Narrow', sans-serif;
+  font-family: "Pragati Narrow", sans-serif;
   font-size: 1.15rem;
 }
 
@@ -263,14 +263,13 @@ footer {
   display: flex;
 }
 
-.nombres{
+.nombres {
   margin-right: 1rem;
   text-decoration: none;
   color: #cf7124;
-
 }
 
-.nombres:hover{
+.nombres:hover {
   color: blue;
 }
 
@@ -325,25 +324,25 @@ footer {
   background-color: #e8e9eb;
 }
 
-.verde{
-    border: 0.5px solid green;                 
+.verde {
+  border: 0.5px solid green;
 }
 
-.enviar{
-    border-radius: 0px;
-    border: none;
-    background-color: black;
-    color: white;
-    text-decoration: none;
+.enviar {
+  border-radius: 0px;
+  border: none;
+  background-color: black;
+  color: white;
+  text-decoration: none;
 }
 
-.enviar:hover{
-    background-color: rgba(0, 0, 0, 0.596);
-    color: white;
+.enviar:hover {
+  background-color: rgba(0, 0, 0, 0.596);
+  color: white;
 }
 
 .btn-primary:hover {
-  border: 0.1rem solid black; 
+  border: 0.1rem solid black;
   background-color: white;
   color: black;
 }
@@ -399,7 +398,7 @@ textarea {
 
 /* Estilos pagina de Registro */
 
-.registro{
+.registro {
   width: 80%;
   height: 45rem;
   /* background-color: rgba(255, 0, 0, 0.37); */
@@ -410,7 +409,7 @@ textarea {
   align-items: center;
 }
 
-.contenedorform{
+.contenedorform {
   width: 25rem;
   height: 22rem;
   background-color: #e8e9eb;
@@ -418,16 +417,15 @@ textarea {
   margin-top: 1rem;
 }
 
-.faceygoog{
+.faceygoog {
   width: 25rem;
   padding-top: 1rem;
   /* background-color: chartreuse; */
   display: flex;
-  justify-content: space-evenly
-
+  justify-content: space-evenly;
 }
 
-.botongoog{
+.botongoog {
   width: 10rem;
   height: 2.5rem;
   background-color: #dd4c39;
@@ -439,7 +437,7 @@ textarea {
   margin: 0;
 }
 
-.botonface{
+.botonface {
   width: 10rem;
   height: 2.5rem;
   background-color: #4167b2;
@@ -451,30 +449,29 @@ textarea {
   margin: 0;
 }
 
-.botonface p{
+.botonface p {
   margin-bottom: 0;
 }
 
-.botongoog p{
+.botongoog p {
   margin-bottom: 0;
 }
 
-.logossesion{
+.logossesion {
   width: 2rem;
   height: 1.8rem;
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 
-svg{
+svg {
   width: 1.5rem;
 }
 
-.gris{
+.gris {
   border: 1px solid #ec9b59e7;
-
 }
 
-.crearcuenta{
+.crearcuenta {
   width: 22rem;
   border-radius: 0px;
   border: none;
@@ -482,15 +479,14 @@ svg{
   color: white;
 }
 
-.crearcuenta:hover{
+.crearcuenta:hover {
   background-color: rgba(0, 0, 0, 0.596);
   color: white;
 }
 
-
 /* Estilos página de conocenos: */
 
-.conocenos{
+.conocenos {
   width: 80%;
   min-height: auto;
   color: black;
@@ -499,7 +495,7 @@ svg{
   align-items: center;
 }
 
-.cajasabout{
+.cajasabout {
   width: 24rem;
   height: 20rem;
   margin: 1rem 3rem;
@@ -507,61 +503,58 @@ svg{
   /* border: 2px solid green; */
   background-color: #ec9b59e7;
   color: black;
-  font-family: 'Prompt', sans-serif;
+  font-family: "Prompt", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center; 
+  text-align: center;
 }
 
-.cajasabout:hover{
+.cajasabout:hover {
   transition: 500ms;
-  transform:scale(0.95); 
+  transform: scale(0.95);
   box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.657);
   color: white;
 }
 
-.fotofranco{
+.fotofranco {
   width: 24rem;
   height: 20rem;
 }
 
-.profesionales{
+.profesionales {
   width: 100%;
   height: 20rem;
   /* border: 3px solid red; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  
 }
 
-.veterinarios{
+.veterinarios {
   width: 90%;
   min-height: auto;
   /* border: 3px solid green; */
   text-align: center;
-  font-family: 'Pragati Narrow', sans-serif;
+  font-family: "Pragati Narrow", sans-serif;
   font-size: 1.5rem;
 }
 
-
-.galeria{
+.galeria {
   width: 100%;
   height: 15rem;
   /* border: 3px solid black; */
 }
 
-.galeria img{
+.galeria img {
   width: 16.667%;
   object-fit: cover;
 }
 
-
 /* Estilos modal: */
 
-#modal{
+#modal {
   background-color: rgba(0, 0, 0, 0.616);
   position: fixed;
   top: 0;
@@ -575,10 +568,8 @@ svg{
   align-items: center;
 }
 
-
-#modal:target{
+#modal:target {
   visibility: visible;
-  
 }
 
 .cookiesContent {
@@ -599,64 +590,65 @@ svg{
   padding: 30px 30px 70px;
 }
 
-.modalCompra{
-    height: 2rem;
-    border: none;
-    background-color: black;
-    color: white;
-    text-decoration: none;
-    margin: 2.15rem 0;
-    padding: .3rem;
-    text-align: center;
-
+.modalCompra {
+  height: 2rem;
+  border: none;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  margin: 2.15rem 0;
+  padding: 0.3rem;
+  text-align: center;
 }
 
-.modalCompra:hover{
+.modalCompra:hover {
   background-color: rgba(0, 0, 0, 0.596);
   color: white;
 }
 
 button.close {
-    width: 30px;
-    font-size: 20px;
-    color: #c0c5cb;
-    align-self: flex-end;
-    background-color: transparent;
-    border: none;
-    margin-bottom: 10px;
-    text-decoration: none;
-  }
-  img {
-    width: 82px;
-    margin-bottom: 15px;
-  }
-  p {
-    margin-bottom: 40px;
-    font-size: 18px;
-  }
-  button.accept {
-    background-color: #ed6755;
-    border: none;
-    border-radius: 5px;
-    width: 200px;
-    padding: 14px;
-    font-size: 16px;
-    color: white;
-    box-shadow: 0px 6px 18px -5px rgba(237, 103, 85, 1);
-  }
+  width: 30px;
+  font-size: 20px;
+  color: #c0c5cb;
+  align-self: flex-end;
+  background-color: transparent;
+  border: none;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
+img {
+  width: 82px;
+  margin: 0;
+}
+
+p {
+  margin-bottom: 40px;
+  font-size: 18px;
+}
+button.accept {
+  background-color: #ed6755;
+  border: none;
+  border-radius: 5px;
+  width: 200px;
+  padding: 14px;
+  font-size: 16px;
+  color: white;
+  box-shadow: 0px 6px 18px -5px rgba(237, 103, 85, 1);
+}
 
 /* Tarjeta de detalles: */
 
-.tarjetadetalles{
+.tarjetadetalles {
   width: 50rem;
   height: 25rem;
   border: 1px solid black;
   background-color: #e8e9eb;
-  font-family: 'Prompt', sans-serif;
+  font-family: "Prompt", sans-serif;
   display: flex;
 }
 
-.detallesid{
+.detallesid {
   width: 50%;
   padding: 1rem 0;
   padding: 1rem 1rem;
@@ -665,25 +657,25 @@ button.close {
   flex-direction: column;
 }
 
-.nameid{
+.nameid {
   /* background-color: beige; */
   display: flex;
   text-align: center;
 }
 
-.descriptionid{
+.descriptionid {
   font-size: 2vh;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.textoid{
+.textoid {
   margin-top: 1rem;
   line-height: 2rem;
   font-size: 1.9vh;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.imgyprecio{
+.imgyprecio {
   width: 50%;
   padding: 1rem 0;
   min-height: auto;
@@ -695,29 +687,29 @@ button.close {
   align-items: center;
 }
 
-.imgtarjeta{
+.imgtarjeta {
   width: 20rem;
   height: 13rem;
   margin-bottom: 2rem;
   border-radius: 0.5rem;
 }
 
-.precio{
+.precio {
   /* background-color: rgb(41, 204, 41); */
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   border: 2px solid rgb(59, 57, 201);
   border-radius: 1rem;
   font-size: 1.5rem;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.form-select{
-    border: 0.5px solid black;
-    background-color: #e8e9eb;
+.form-select {
+  border: 0.5px solid black;
+  background-color: #e8e9eb;
 }
 
 td img {
-  height: 150px !important;
+  width: 8rem !important;
 }
 
 .botonmas {

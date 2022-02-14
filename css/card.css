@@ -101,8 +101,13 @@ main {
   left: 0;
   background-color: #ee1f1f;
   color: #fff;
-  padding: 0.8rem;
-  border-radius: 0.3rem;
+  padding: 0.8rem 4rem;
+  padding-top: 5rem;
+  transform: translateX(-5.1rem) translateY(-3.9rem) rotate(-45deg);
+}
+
+.stockP {
+  margin: 0;
 }
 
 .title {
