@@ -47,7 +47,9 @@ function updateDisplay(data) {
             <p class="title">
               <a href="./detalle.html?id=${item._id}"> ${item.nombre} </a>
             </p>
-            <p class="price">Precio: $${item.precio}</p>
+            <p class="price">
+              <a href="./detalle.html?id=${item._id}"> Precio: $${item.precio} </a>
+            </p>
             <div class="botones">
               <button
                 onClick="getID('${item._id}')"
