@@ -27,7 +27,12 @@ function updateDisplay(data) {
   var templateHTML = "";
   toDisplay.map((item) => {
     let alerta =
-      item.stock <= 5 ? `<p class="stock">Ultimas unidades!</p>` : ` `;
+      item.stock <= 5
+        ? `<div class="stock">
+      <p class="stockP">Ultimas</p>
+      <p class="stockP">unidades!</p>
+      </div>`
+        : ` `;
 
     templateHTML += `
       <div class="card">
