@@ -50,7 +50,7 @@ main {
 }
 
 .card {
-  max-width: 50ch;
+  max-width: 40ch;
   box-shadow: 0 1em 2em rgb(0 0 0 / 0.2);
   transition: transform ease 250ms;
   border-radius: 0.5rem;
@@ -116,6 +116,10 @@ main {
   color: #2f2f2f;
 }
 
+.title a {
+  color: #2f2f2f;
+}
+
 .price {
   font-size: 1.5rem;
   color: #161616;
@@ -124,6 +128,7 @@ main {
 .botones {
   display: flex;
   justify-content: space-evenly;
+  gap: 0.5rem;
   position: absolute;
   bottom: 0;
   left: -1rem;

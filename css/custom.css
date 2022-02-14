@@ -186,6 +186,42 @@ footer {
   align-items: center;
 }
 
+.containerFooter {
+  /* first breakpoint*/
+  --w1: 1200px;
+  --n: 2;
+  /* second breakpoint*/
+  --w2: 900px;
+  --m: 2;
+  /* third breakpoint*/
+  --w3: 500px;
+  --p: 1;
+
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(
+      clamp(
+        clamp(
+          clamp(
+            100%/ (var(--n) + 1) + 0.1%,
+            (var(--w1) - 100vw) * 1000,
+            100%/ (var(--m) + 1) + 0.1%
+          ),
+          (var(--w2) - 100vw) * 1000,
+          100%/ (var(--p) + 1) + 0.1%
+        ),
+        (var(--w3) - 100vw) * 1000,
+        100%
+      ),
+      1fr
+    )
+  );
+  gap: 2rem;
+}
+
+
+
 .formulario {
   width: 45.5rem;
   height: 31rem;
