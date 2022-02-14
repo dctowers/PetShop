@@ -21,29 +21,17 @@ async function getData(){
         
         var imprimir = ""
         seleccionado.forEach(seleccionado=>{
-            
-
-            
-        imprimir = `  
-                    <div class="titulo">
-                    </div>
-                    <div class="contenido">
-                    <div class="imagen">
-                    <img class="imagendentro" src="${seleccionado.imagen}">
-                    </div>
-                    <div class="texto">
-                    
-                    <h2>${seleccionado.nombre}</h2>
-                    <p>${seleccionado.descripcion}</p>
-                    <div class="botonesyprecio">     
-                    <h3>Precio: $${seleccionado.precio}</h3>
-                    <div class="botones">
-                    <button onclick= "añadirCarrito()" id="carrito">Añadir al carrito</button>
-                    <button onclick= "compraDirecta()" id="comprar" data-open="modal">Comprar ahora</button>
-                    </div>
-                    </div>
-                    </div>
-
+        imprimir = ` 
+        <div class="tarjetadetalles"> 
+        <div class="imgyprecio">
+        <img class="imgtarjeta" src="${seleccionado.imagen}" alt="">
+        <h3 class="precio">🛒$${seleccionado.precio}</h3>
+        </div>
+        <div class="detallesid">
+        <h2 class="nameid">${seleccionado.nombre}</h2>
+        <p class="descriptionid">${seleccionado.descripcion}</p>
+    </div>
+    </div>
         `           
        })
        
