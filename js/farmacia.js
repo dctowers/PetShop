@@ -74,10 +74,10 @@ function getID(event){
 
  
     var badge = ""  
-    var vallabel = JSON.parse(localStorage.getItem('carrito'))  
-    console.log(vallabel.length)
+    // var vallabel = JSON.parse(localStorage.getItem('carrito'))  
+    console.log(clearFav.length)
     
-    if(vallabel.length >= 0){
+    if(clearFav.length >= 0){
       console.log("diferenre de 0")
         badge = `
         <h1 id="elh1" class="elh1s" >${clearFav.length}</h1>
@@ -86,7 +86,7 @@ function getID(event){
         
   
     }
-    else if(vallabel.length == 0){
+    else if(clearFav.length == 0){
         console.log("es 0")
          h1s.style.visibility = "hidden"
         }

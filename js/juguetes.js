@@ -20,10 +20,11 @@ getData()
 
 
 function updateDisplay(buscado){
-    if(buscado == undefined){
-        toDisplay.push(...juguetes)
-    }else{  
+    if(buscado){
+        toDisplay = [];
         toDisplay.push(...buscado)
+    }else{  
+        toDisplay.push(...juguetes)
     }
     let templateHTML = ""
     toDisplay.forEach(item=>{
@@ -72,10 +73,10 @@ function getID(event){
     var limpiar = [...unicoCarrito]
 
     var badge = ""  
-    var vallabel = JSON.parse(localStorage.getItem('carrito'))  
-    console.log(vallabel.length)
+    // var vallabel = JSON.parse(localStorage.getItem('carrito'))  
+    console.log(limpiar.length)
     
-    if(vallabel.length >= 0){
+    if(limpiar.length >= 0){
       console.log("diferenre de 0")
         badge = `
         <h1 id="elh1" class="elh1s" >${limpiar.length}</h1>
@@ -84,7 +85,7 @@ function getID(event){
         
   
     }
-    else if(vallabel.length == 0){
+    else if(limpiar.length == 0){
         console.log("es 0")
          h1s.style.visibility = "hidden"
         }
@@ -97,18 +98,19 @@ function getID(event){
 }
 
 function search(event){
-    let data = []
+    let datitos = []
     let buscar = ""
     buscar = event.target.value
     console.log(buscar)
 
     if(buscar == ""){
-        data.push(...juguetes)
+        datitos = [];
+        datitos.push(...juguetes)
     }else{
-        data.push(...juguetes.filter(juguete => juguete.nombre.toLowerCase().includes(buscar.toLowerCase())))
+        datitos.push(...juguetes.filter(juguete => juguete.nombre.toLowerCase().includes(buscar.toLowerCase())))
     }
-    console.log(data);
-    updateDisplay(data)
+    console.log(datitos);
+    updateDisplay(datitos)
 
 }
 
