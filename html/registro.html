@@ -4,17 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="../css/custom.css">
-    <link rel="stylesheet" href="../css/detalle.css" />
-    <title>Franco Petshop | Detalle</title>
-    <link rel="shortcut icon" href="../assets/log-trans.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/custom.css" />
   </head>
+
   <body>
     <header>
       <div class="encabezado">
@@ -37,9 +36,6 @@
                   </li>
                   <li class="nav-item">
                     <a class="navbar-brand" href="../html/farmacia.html">FARMACIA</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="navbar-brand" href="#contacto">CONTACTO</a>
                   </li>
                   <li class="nav-item">
                     <a class="navbar-brand" href="../html/about.html">CONÓCENOS</a>
@@ -84,12 +80,57 @@
 
     <main>
       <section class="registro">
-        <div id="box"></div>
-      </section> 
+        <h2>Crea una cuenta</h2>
+        <p>Podrás acceder a descuentos exclusivos solo para clientes</p>
+        <div class="contenedorform">
+            <div class="faceygoog">
+                <div class="botonface">
+                    <img src="../assets/facebookxd.png" alt="" class="logossesion">
+                    <p>Facebook</p>
+                </div>
+                <div class="botongoog">
+                    <img src="../assets/google-mas.png" alt="" class="logossesion">
+                    <p>Google</p>
+                </div>
+
+            </div>
+            
+            <form class="px-4 py-3">
+              <div class="mb-3">
+                <div class="input-group">
+                    <span class="gris input-group-text"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg></span>
+                    <input type="text" class="form-control" aria-describedby="validationTooltipUsernamePrepend" required placeholder="Nombre de usuario">
+                  </div>
+              </div>
+          
+              <div class="mb-3">
+                <div class="input-group">
+                    <span class="gris input-group-text"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg></span>
+                    <input type="email" class="form-control" aria-describedby="validationTooltipUsernamePrepend" required placeholder="Email">
+                  </div>
+              </div>
+
+              <div class="mb-3">
+                <div class="input-group">
+                    <span class="gris input-group-text"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg></span>
+                    <input type="password" class="form-control" aria-describedby="validationTooltipUsernamePrepend" required placeholder="Contraseña">
+                  </div>
+              </div>
+              <div class="mb-3">
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                  <label class="form-check-label" for="dropdownCheck">
+                    Acepto recibir notificaciones a mi correo
+                  </label>
+                </div>
+              </div>
+              <button type="submit" class="crearcuenta btn btn-primary">Crear cuenta</button>
+            </form>
+          </div>
+        
+      </section>
     </main>
 
-    <script src="../js/detalle.js"></script>
-    <script src="../js/localstorage.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

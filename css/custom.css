@@ -16,8 +16,8 @@ body {
   flex-direction: column;
 }
 
-html {
-  scroll-behavior: smooth;
+html{
+    scroll-behavior: smooth;
 }
 
 header {
@@ -68,9 +68,12 @@ nav a:hover {
   width: 2rem;
 }
 
-.dropdown-menu[data-bs-popper] {
+.dropdown-menu[data-bs-popper]{
+  width: 16rem;
   top: 100%;
   left: -250%;
+  font-family: 'Pragati Narrow', sans-serif;
+  font-size: 1.15rem;
 }
 
 main {
@@ -245,6 +248,17 @@ footer {
   display: flex;
 }
 
+.nombres{
+  margin-right: 1rem;
+  text-decoration: none;
+  color: #cf7124;
+
+}
+
+.nombres:hover{
+  color: blue;
+}
+
 .nosotros {
   width: 42rem;
   height: 3rem;
@@ -296,23 +310,24 @@ footer {
   background-color: #e8e9eb;
 }
 
-.form-select {
-  border: 0.5px solid black;
-  background-color: #e8e9eb;
+.verde{
+    border: 0.5px solid green;                 
 }
 
-.input-group-text {
-  border: 0.5px solid green;
+.enviar{
+    border-radius: 0px;
+    border: none;
+    background-color: black;
+    color: white;
 }
 
-.btn-primary {
-  border-radius: 0px;
-  border: none;
-  background-color: black;
-  color: white;
+.enviar:hover{
+    background-color: rgba(0, 0, 0, 0.596);
+    color: white;
 }
 
 .btn-primary:hover {
+  border: 0.1rem solid black; 
   background-color: white;
   color: black;
 }
@@ -325,8 +340,7 @@ textarea {
 /* Estilos pagina Farmacia y Juguetes */
 
 .titulo {
-  width: 90%;
-  max-width: 150ch;
+  width: 60%;
   min-height: 10rem;
   margin-top: 4.1rem;
   /* background-color: rgba(139, 27, 27, 0.637); */
@@ -346,75 +360,277 @@ textarea {
 }
 
 .tarjetas {
-  width: 80%;
+  width: 60%;
   min-height: 80rem;
   margin-top: 1rem;
-  /* background-color: rgba(139, 27, 27, 0.637); */
+  background-color: rgba(224, 44, 44, 0.637);
   display: flex;
   color: black;
 }
-.box {
+
+/* Estilos pagina de Registro */
+
+.registro{
+  width: 80%;
+  height: 45rem;
+  /* background-color: rgba(255, 0, 0, 0.37); */
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedorform{
+  width: 25rem;
+  height: 22rem;
+  background-color: #e8e9eb;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+
+.faceygoog{
+  width: 25rem;
+  padding-top: 1rem;
+  /* background-color: chartreuse; */
+  display: flex;
+  justify-content: space-evenly
+
+}
+
+.botongoog{
+  width: 10rem;
+  height: 2.5rem;
+  background-color: #dd4c39;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.botonface{
+  width: 10rem;
+  height: 2.5rem;
+  background-color: #4167b2;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.botonface p{
+  margin-bottom: 0;
+}
+
+.botongoog p{
+  margin-bottom: 0;
+}
+
+.logossesion{
+  width: 2rem;
+  height: 1.8rem;
+  margin-right: .5rem;
+}
+
+svg{
+  width: 1.5rem;
+}
+
+.gris{
+  border: 1px solid #ec9b59e7;
+
+}
+
+.crearcuenta{
+  width: 22rem;
+  border-radius: 0px;
+  border: none;
+  background-color: black;
+  color: white;
+}
+
+.crearcuenta:hover{
+  background-color: rgba(0, 0, 0, 0.596);
+  color: white;
+}
+
+
+/* Estilos página de conocenos: */
+
+.conocenos{
+  width: 80%;
+  min-height: auto;
+  color: black;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 25rem;
-  height: 27rem;
-  border: 1px solid #dc0073;
-  margin: auto;
-  border-radius: 30px;
-  text-align: center;
+}
+
+.cajasabout{
+  width: 24rem;
+  height: 20rem;
+  margin: 1rem 3rem;
+  padding: 0 3rem;
+  /* border: 2px solid green; */
+  background-color: #ec9b59e7;
   color: black;
-  box-shadow: 0px 10px 10px gray;
-  transition: all 100ms ease;
-  margin: 20px;
-  padding: 2px;
+  font-family: 'Prompt', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; 
 }
-.box:hover {
-  width: 25.2rem;
-  height: 27.2rem;
+
+.cajasabout:hover{
+  transition: 500ms;
+  transform:scale(0.95); 
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.657);
+  color: white;
 }
-.box.img:hover {
-  box-shadow: 0px 15px 15px black;
+
+.fotofranco{
+  width: 24rem;
+  height: 20rem;
 }
-.box img {
-  height: 16rem;
+
+.profesionales{
+  width: 100%;
+  height: 20rem;
+  /* border: 3px solid red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
 }
-.box h4 {
-  display: block;
+
+.veterinarios{
+  width: 90%;
+  height: 3rem;
+  /* border: 3px solid green; */
+  text-align: center;
+  font-family: 'Pragati Narrow', sans-serif;
+  font-size: 1.5rem;
 }
-td img {
-  height: 150px !important;
+
+
+.galeria{
+  width: 100%;
+  height: 15rem;
+  /* border: 3px solid black; */
 }
-tr {
-  border-bottom: 1px solid black;
+
+.galeria img{
+  width: 16.667%;
+  object-fit: cover;
 }
-.botonmas {
-  border: 0px;
-  font-size: 22px;
-  background-color: green;
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
-  border-radius: 60px;
+
+
+/* Estilos modal: */
+
+.modal{
+  background-color: rgba(0, 0, 0, 0.616);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  
+  transition: all 1s;
 }
-.botonmenos {
-  border: 0px;
-  font-size: 22px;
+
+#modalconsulta:target{
+  opacity: 1;
+  
+}
+
+/* Tarjeta de detalles: */
+
+.tarjetadetalles{
+  width: 55rem;
+  border: 3px solid black;
+  background-color: #e8e9eb;
+  font-family: 'Prompt', sans-serif;
+  display: flex;
+}
+
+.detallesid{
+  width: 50%;
+  padding: 1rem 0;
+  padding: 1rem 1rem;
+  background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+}
+
+.nameid{
+  background-color: beige;
+  display: flex;
+  text-align: center;
+}
+
+.descriptionid{
+  font-size: 2vh;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.textoid{
+  margin-top: 1rem;
+  line-height: 2rem;
+  font-size: 1.9vh;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.imgyprecio{
+  width: 50%;
+  padding: 1rem 0;
+  min-height: auto;
+  padding: 1rem 1rem;
+  background-color: darkcyan;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.imgtarjeta{
+  width: 20rem;
+  height: 13rem;
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+}
+
+.precio{
+  /* background-color: rgb(41, 204, 41); */
+  padding: .5rem 1rem;
+  border: 2px solid rgb(59, 57, 201);
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-select{
+    border: 0.5px solid black;
+    background-color: #e8e9eb;
+}
+
+
+
+.elh1s {
+  border-radius: 3rem;
   background-color: red;
-  width: 40px;
-  height: 40px;
-  margin-left: 10px;
-  border-radius: 60px;
+  color: white;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 0px;
+  border-radius: 3rem;
+  font-size: 1.3rem;
+  font-weight: 900;
+  margin: 0;
+  text-align: center;
 }
-.botonborrar {
-  height: 40px;
-  border-radius: 20px;
-  width: 7rem;
-  border: none;
-  background-color: orange;
-}
-.botonmas:hover {
-  height: 42px;
-  width: 42px;
-}
-/* Estilos pagina de Contacto */

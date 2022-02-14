@@ -1,30 +1,38 @@
-let articulos = []
-let juguetes = []
-let toDisplay = []
+let articulos = [];
+let juguetes = [];
+let toDisplay = [];
 
+let buscador = document.querySelector("#buscador");
 
-let buscador = document.querySelector("#buscador")
+async function getData() {
+  await fetch("https://apipetshop.herokuapp.com/api/articulos")
+    .then((response) => response.json())
+    .then((json) => articulos.push(...json.response));
+  juguetes.push(
+    ...articulos.filter((articulos) => articulos.tipo === "Juguete")
+  );
+  // console.log(juguetes);
 
-async function getData(){ 
-    await fetch("https://apipetshop.herokuapp.com/api/articulos") 
-    .then(response => response.json())
-    .then(json => articulos.push(...json.response))
-    juguetes.push(...articulos.filter(articulos=>articulos.tipo === "Juguete"))
-    // console.log(juguetes);
+  async function getData() {
+    await fetch("https://apipetshop.herokuapp.com/api/articulos")
+      .then(response => response.json())
+      .then(json => articulos.push(...json.response))
+    juguetes.push(...articulos.filter(articulos => articulos.tipo === "Juguete"))
 
     updateDisplay()
-    bajoStock()
-}
 
-getData()
+  }
 
-//console.log(juguetes)
+}getData();
+
+
 
 function updateDisplay(buscado){
-    if(buscado == undefined){
-        toDisplay.push(...juguetes)
-    }else{  
+    if(buscado){
+        toDisplay = [];
         toDisplay.push(...buscado)
+    }else{  
+        toDisplay.push(...juguetes)
     }
     let templateHTML = ""
     toDisplay.forEach(item=>{
@@ -32,67 +40,103 @@ function updateDisplay(buscado){
         let alerta = item.stock <= 5 ? `<p class="date">Ultimas unidades!</p>`:` `
         
         templateHTML += `
-<a href="./detalle.html?id=${item._id}">
-    <div class="row">
-        <div class="example-1 card">
-            <div class="wrapper">
-                    <p>${alerta}</p>
-                    <div class="imgdentro">
-                        <img src="${item.imagen}" alt="">
-                    </div>
-                    <div class="date">
-                    </div>
-                <div class="data">
-                <div class="content">    
-                        <h1 class="title">
-                            <a class="titulo" href="#">${item.nombre}</a>
-                        </h1>
-                        <span class="precio">Precio: $${item.precio}</span>
-                        <div class="botones">
-                            <button onClick="getID('${item._id}')" id="${item._id}" class="btn-carrito">Añadir al carrito</button>
-                        </div>
-                </div>
-            </div>
+      <div class="card">
+        ${alerta}
+        <div class="cardImg">
+          <a href="./detalle.html?id=${item._id}">
+            <img src="${item.imagen}" alt="" />
+          </a>
         </div>
-    </div>
-</a>
-        `
+        <div class="data">
+          <div class="content">
+            <p class="title">${item.nombre}</p>
+            <p class="price">Precio: $${item.precio}</p>
+            <div class="botones">
+              <button
+                onClick="getID('${item._id}')"
+                id="${item._id}"
+                class="btn btn-primary"
+              >
+                Añadir al carrito
+              </button>
+              <a href="./shop.html"
+                ><button
+                  onClick="getID('${item._id}')"
+                  id="${item._id}"
+                  class="btn btn-primary"
+                >
+                  comprar ahora
+                </button></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+        `;
 
-        document.querySelector("#cartas").innerHTML = templateHTML
-        
-    })
+    document.querySelector("#cartas").innerHTML = templateHTML;
+  });
 }
-var lista = JSON.parse(localStorage.getItem('carrito')) || []
-var Limpiar 
+var lista = JSON.parse(localStorage.getItem("carrito")) || [];
+var Limpiar;
 
-function getID(e){
-    console.log(e.target)
-    lista.push(e)
+function getID(event){
+    // console.log(e.target)
+    lista.push(event)
     const unicoCarrito = new Set(lista) 
     var limpiar = [...unicoCarrito]
+
+    var badge = ""  
+    // var vallabel = JSON.parse(localStorage.getItem('carrito'))  
+    console.log(limpiar.length)
+    
+    if(limpiar.length >= 0){
+      console.log("diferenre de 0")
+        badge = `
+        <h1 id="elh1" class="elh1s" >${limpiar.length}</h1>
+        `
+        document.querySelector("#cartitas").innerHTML = badge
+        
+  
+    }
+    else if(limpiar.length == 0){
+        console.log("es 0")
+        h1s.style.visibility = "hidden"
+        }
+
     
     
     localStorage.setItem('carrito', JSON.stringify(limpiar));
-    init()
+
     
 }
 
 function search(event){
-    let data = []
+    let datitos = []
     let buscar = ""
     buscar = event.target.value
     console.log(buscar)
 
     if(buscar == ""){
-        data.push(...juguetes)
+        datitos = [];
+        datitos.push(...juguetes)
     }else{
-        data.push(...juguetes.filter(juguete => juguete.nombre.toLowerCase().includes(buscar.toLowerCase())))
+        datitos.push(...juguetes.filter(juguete => juguete.nombre.toLowerCase().includes(buscar.toLowerCase())))
     }
-    console.log(data);
-    updateDisplay(data)
+    console.log(datitos);
+    updateDisplay(datitos)
 
+  if (buscar == "") {
+    data.push(...juguetes);
+  } else {
+    data.push(
+      ...juguetes.filter((juguete) =>
+        juguete.nombre.toLowerCase().includes(buscar.toLowerCase())
+      )
+    );
+  }
+  console.log(data);
+  updateDisplay(data);
 }
 
-buscador.addEventListener("keyup", search)
-
-
+buscador.addEventListener("keyup", search);
